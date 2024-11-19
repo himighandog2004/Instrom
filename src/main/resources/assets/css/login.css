@@ -1,0 +1,60 @@
+/* Loading all of the fonts included in the login page */
+@font-face {
+    font-family: 'Montserrat ExtraBold';
+    src: url('../fonts/Montserrat/Montserrat-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat Light';
+    src: url('../fonts/Montserrat/Montserrat-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat Medium';
+    src: url('../fonts/Montserrat/Montserrat-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat Bold';
+    src: url('../fonts/Montserrat/Montserrat-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat Regular';
+    src: url('../fonts/Montserrat/Montserrat-Regular.ttf');
+}
+
+#loginGreeting {
+    -fx-font-family: "Montserrat ExtraBold";
+    -fx-font-size: 24px;
+}
+
+#loginTextMessage {
+    -fx-font-family: "Montserrat Light";
+    -fx-font-size: 13px;
+}
+
+#loginButton {
+    -fx-font-family: "Montserrat Bold";
+    -fx-font-size: 20px;
+    -fx-background-color: #967126;
+    -fx-text-fill: white;
+    transition: -fx-background-color;
+}
+
+#loginButton:hover {
+    -fx-background-color: #b48d37;
+}
+
+#loginButton:pressed {
+    -fx-background-color: #7a5b1f;
+}
+
+#emailLabel, #passwordLabel {
+    -fx-font-family: "Montserrat Medium";
+    -fx-font-size: 13px;
+}
+
+#emailInput, #passwordInput {
+    -fx-background-color: #d9d9d9;
+}

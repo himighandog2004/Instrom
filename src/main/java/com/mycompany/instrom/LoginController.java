@@ -6,15 +6,22 @@ import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 public class LoginController implements Initializable {
     private final String email = "admin@gmail.com";
     private final String password = "password";
+    private int attempts = 4;
     private final String slideImgs[] = {
         "/assets/images/guitar0.jpg",
         "/assets/images/guitar1.jpg",
@@ -26,16 +33,46 @@ public class LoginController implements Initializable {
     private int imageIndexCount = 0;
     
     @FXML
+    private TextField userInput;
+    
+    @FXML
+    private PasswordField userPass;
+    
+    @FXML
     private AnchorPane loginImage;
     
     @FXML
     private Rectangle rect;
     
     @FXML
+    private Text userAttempt;
+    
+    @FXML
     private void Login() throws IOException {
         // TODO: Validate login here and then proceed to home/dashboard
-        App.setRoot("secondary");
+        String userEmail = userInput.getText();
+        String userPassword = userPass.getText();
+        if(userEmail.equals(email) && userPassword.equals(password)){
+            App.setRoot("secondary");
+        } else {
+            attempts--;
+            userAttempt.setText("Attempts remaining: " + attempts);
+            if(attempts == 0){
+            System.exit(0);
+            }
+        }
+        
     }
+    
+    @FXML
+    public void buttonPressed(KeyEvent e) throws IOException
+    {
+        if(e.getCode().toString().equals("ENTER"))
+        {
+        Login();
+        }
+    }
+    
     
     private void changeLoginImage() {
         // Note that imageIndex must be in range... so we first check it

@@ -47,13 +47,14 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <TextField id="emailInput" layoutX="30.0" layoutY="174.0" prefHeight="32.0" prefWidth="245.0" />
-            <PasswordField id="passwordInput" layoutX="30.0" layoutY="250.0" prefHeight="32.0" prefWidth="245.0" />
-            <Button id="loginButton" alignment="CENTER" focusTraversable="false" layoutX="97.0" layoutY="340.0" maxHeight="46.0" maxWidth="112.0" minHeight="46.0" minWidth="112.0" mnemonicParsing="false" onAction="#Login" prefHeight="46.0" prefWidth="112.0" text="Login" textAlignment="CENTER">
+            <TextField id="emailInput" fx:id="userInput" layoutX="30.0" layoutY="174.0" prefHeight="32.0" prefWidth="245.0" />
+            <PasswordField id="passwordInput" fx:id="userPass" layoutX="30.0" layoutY="250.0" onKeyPressed="#buttonPressed" prefHeight="32.0" prefWidth="245.0" />
+            <Button id="loginButton" fx:id="buttonPressed" alignment="CENTER" focusTraversable="false" layoutX="104.0" layoutY="340.0" maxHeight="46.0" maxWidth="112.0" minHeight="46.0" minWidth="112.0" mnemonicParsing="false" onAction="#Login" onKeyPressed="#Login" prefHeight="46.0" prefWidth="112.0" text="Login" textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
+            <Text id="userAttempt" fx:id="userAttempt" layoutX="53.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="197.33673095703125" />
          </children></AnchorPane>
    </right>
 </BorderPane>

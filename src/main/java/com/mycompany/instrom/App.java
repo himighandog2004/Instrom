@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.image.Image;
+import javafx.scene.layout.StackPane;
 
 /**
  * JavaFX App
@@ -17,9 +19,11 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/assets/images/icon.png")));
+        stage.setTitle("Log in to your Instrom Account");
         scene = new Scene(loadFXML("Login"), 640, 480);
-        stage.setScene(scene);
-        stage.setResizable(false); 
+        stage.setScene(scene);  
+        stage.setResizable(false);
         stage.show();
     }
 

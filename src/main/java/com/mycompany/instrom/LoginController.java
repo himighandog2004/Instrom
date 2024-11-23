@@ -17,6 +17,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import javax.swing.*;
+
 
 public class LoginController implements Initializable {
     private final String email = "admin@gmail.com";
@@ -58,7 +60,8 @@ public class LoginController implements Initializable {
             attempts--;
             userAttempt.setText("Attempts remaining: " + attempts);
             if(attempts == 0){
-            System.exit(0);
+                JOptionPane.showMessageDialog(null, "All attempts failed. Exiting program...");
+                System.exit(0);
             }
         }
         

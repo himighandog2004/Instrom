@@ -12,13 +12,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@../../../assets/css/login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.instrom.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@../../../../assets/css/login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.instrom.app.LoginController">
    <left>
       <AnchorPane id="loginImage" fx:id="loginImage" maxHeight="480.0" maxWidth="320.0" minHeight="480.0" minWidth="320.0" prefHeight="480.0" prefWidth="320.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView cache="true" cacheHint="QUALITY" fitHeight="69.0" fitWidth="170.0" layoutX="134.0" layoutY="17.0" pickOnBounds="true">
                <image>
-                  <Image url="@../../../assets/images/logo.png" />
+                  <Image url="@../../../../assets/images/logo.png" />
                </image>
             </ImageView>
             <Rectangle fx:id="rect" arcHeight="5.0" arcWidth="5.0" height="480.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="320.0" />

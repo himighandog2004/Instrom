@@ -1,4 +1,4 @@
-package com.mycompany.instrom;
+package com.mycompany.instrom.app;
 
 import java.io.IOException;
 import java.net.URL;
@@ -6,19 +6,16 @@ import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
-import javax.swing.*;
-
+import javax.swing.JOptionPane;
 
 public class LoginController implements Initializable {
     private final String email = "admin@gmail.com";
@@ -55,7 +52,10 @@ public class LoginController implements Initializable {
         String userEmail = userInput.getText();
         String userPassword = userPass.getText();
         if(userEmail.equals(email) && userPassword.equals(password)){
-            App.setRoot("secondary");
+            App.setRoot("Dashboard");
+            //App.setRoot("Dashboard");
+            //stage.setTitle("Dashboard");
+            //App.scene = new Scene(loadFXML("Login"), 640, 480);
         } else {
             attempts--;
             userAttempt.setText("Attempts remaining: " + attempts);

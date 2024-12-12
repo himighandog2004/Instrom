@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="1048.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.instrom.app.DashboardController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="588.0" prefWidth="207.0" style="-fx-background-color: #3A3B3C;">
+         <children>
+            <ImageView fitHeight="70.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../assets/images/logo.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="12.0" left="5.0" right="5.0" top="16.0" />
+               </VBox.margin>
+            </ImageView>
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="42.0" prefWidth="206.0" style="-fx-background-color: #3A3B3C;" text="    DASHBOARD" textFill="WHITE">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="HOME" scaleX="1.5" scaleY="1.5" />
+               </graphic>
+            </Button>
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="42.0" prefWidth="209.0" style="-fx-background-color: #3A3B3C;" text="    MY ACCOUNT" textFill="WHITE">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="USER" scaleX="1.5" scaleY="1.5" />
+               </graphic>
+            </Button>
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="42.0" prefWidth="215.0" style="-fx-background-color: #3A3B3C;" text="    MY CART" textFill="WHITE">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="SHOPPING_CART" scaleX="1.5" scaleY="1.5" />
+               </graphic>
+            </Button>
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="42.0" prefWidth="212.0" style="-fx-background-color: #3A3B3C;" text="    CATEGORIES" textFill="WHITE">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="LIST" scaleX="1.5" scaleY="1.5" />
+               </graphic>
+            </Button>
+            <Label alignment="BOTTOM_LEFT" ellipsisString="" prefHeight="40.0" prefWidth="160.0" text="Search Instruments" textAlignment="CENTER" textFill="WHITE">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" />
+               </graphic>
+            </Label>
+            <TextField alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0">
+               <VBox.margin>
+                  <Insets bottom="16.0" top="8.0" />
+               </VBox.margin>
+            </TextField>
+            <Button mnemonicParsing="false" text="Search" />
+         </children>
+      </VBox>
+      <!--
+      <BottomNavigationButton layoutX="742.0" layoutY="31.0" prefHeight="528.0" prefWidth="269.0" style="-fx-background-color: #778899; -fx-background-radius: 10;" />
+            -->
+      <Button layoutX="238.0" layoutY="169.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="58.0" prefWidth="164.0" style="-fx-background-radius: 10; -fx-background-color: #DBE9FA;" text="Yamaha FX310AII" textFill="WHITE" />
+      <ImageView fitHeight="86.0" fitWidth="131.0" layoutX="260.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Dashboard%20Images/Yamaha%20FX310AII.jpg" />
+         </image>
+      </ImageView>
+      <!--
+      <CardPane layoutX="758.0" layoutY="152.0" prefHeight="225.0" prefWidth="238.0" style="-fx-background-radius: 10;">
+          <Label style="-fx-padding:10;" text="Add discount" />
+          <Label style="-fx-padding:10;" text="Sub total" />
+          <Label style="-fx-padding:10;" text="Payment Method" />
+         <Label style="-fx-padding:10;" text="Add Shipping" />
+      </CardPane>
+            -->
+      <Button layoutX="867.0" layoutY="502.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="38.0" prefWidth="121.0" style="-fx-background-radius: 10; -fx-background-color: #DBE9FA;" text="Add to Cart" textFill="WHITE" />
+      <Button layoutX="238.0" layoutY="417.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="58.0" prefWidth="164.0" style="-fx-background-radius: 10; -fx-background-color: #DBE9FA;" text="Yamaha PSR E 363 61 Key" textFill="WHITE" />
+      <ImageView fitHeight="102.0" fitWidth="155.0" layoutX="243.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Dashboard%20Images/Yamaha%20PSR%20E%20363%2061%20Key.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="767.0" layoutY="502.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="38.0" prefWidth="83.0" style="-fx-background-radius: 10; -fx-background-color: #DBE9FA;" text="Check out" textFill="WHITE" />
+      <Button layoutX="758.0" layoutY="46.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="86.0" prefWidth="238.0" style="-fx-background-radius: 10; -fx-background-color: white;" textFill="WHITE" />
+      <ImageView fitHeight="86.0" fitWidth="131.0" layoutX="767.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Dashboard%20Images/Yamaha%20FX310AII.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="863.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yamaha FX310AII" wrappingWidth="128.23697662353516" />
+      <Text layoutX="863.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FR-AP-001" wrappingWidth="128.23697662353516" />
+      <Text layoutX="938.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="199.99$" wrappingWidth="49.236976623535156" />
+   </children>
+</AnchorPane>

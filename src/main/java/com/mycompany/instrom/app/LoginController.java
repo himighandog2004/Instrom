@@ -6,14 +6,18 @@ import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 import javafx.util.Duration;
 import javax.swing.JOptionPane;
 
@@ -51,8 +55,10 @@ public class LoginController implements Initializable {
         // TODO: Validate login here and then proceed to home/dashboard
         String userEmail = userInput.getText();
         String userPassword = userPass.getText();
-        if(userEmail.equals(email) && userPassword.equals(password)){
-            App.setRoot("Dashboard");
+        if(userEmail.equals(email) && userPassword.equals(password)){            
+            //App.setRoot("Dashboard");
+            //stage.setTitle("Dashboard");
+            App.changeStage("Dashboard", "Welcome to Dashboard", 1048, 588);
             //App.setRoot("Dashboard");
             //stage.setTitle("Dashboard");
             //App.scene = new Scene(loadFXML("Login"), 640, 480);

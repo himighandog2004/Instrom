@@ -1,7 +1,23 @@
 package com.mycompany.instrom;
+import com.mycompany.instrom.Stringed.Guitar;
+import com.mycompany.instrom.Stringed.Guitar.GuitarType;
+import com.mycompany.instrom.Stringed.Stringed.StringType;
+import java.util.ArrayList;
 
 public class MusicalInstrument {
-
+    public static final MusicalInstrument[] instruments = {
+        // Guitars
+        new Guitar("BAT1M Tahoma", "Bromo", "inspired by the majestic reputation of the Tahoma volcano in the Pacific Ring of Fire", "/assets/images/guitars/Bromo_BAT1M_Tahoma_Dreadnought_Acoustic_Guitar_(Natural).png", "1 Year", 9000.00, true, 88, StringType.STEEL, "Dreadnought", "Natural", 20, GuitarType.ACOUSTIC)
+        // Keyboards
+        // Bells
+        // Drums
+        // Harp
+        // Brass
+        // Woodwind
+    };
+    
+    public static ArrayList<MusicalInstrument> cart = new ArrayList<>();
+    
     public MusicalInstrument(String name, String brand, String description, String image, InstrumentCategory category, String warrantyPeriod, double price, boolean available) {
         this.name = name;
         this.brand = brand;

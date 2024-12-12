@@ -1,7 +1,9 @@
-module com.mycompany.instrom {
+module com.mycompany.instrom.app {
     requires javafx.controls;
     requires javafx.fxml;
-
-    opens com.mycompany.instrom to javafx.fxml;
-    exports com.mycompany.instrom;
+    requires java.desktop;
+    requires fontawesomefx;
+    
+    opens com.mycompany.instrom.app to javafx.fxml;
+    exports com.mycompany.instrom.app;
 }

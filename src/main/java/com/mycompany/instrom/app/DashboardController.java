@@ -1,12 +1,13 @@
-package com.mycompany.instrom;
+package com.mycompany.instrom.app;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
 
-public class SecondaryController {
+public class DashboardController {
 
     @FXML
     private void switchToPrimary() throws IOException {
-        App.setRoot("primary");
+        App.setRoot("Login");
+        
     }
 }

@@ -9,10 +9,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="1048.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.instrom.app.DashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="1048.0" style="-fx-background-color: white;" stylesheets="@../../../../assets/css/dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.instrom.app.DashboardController">
    <children>
       <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="215.0" style="-fx-background-color: #3A3B3C;">
          <children>
@@ -76,18 +77,36 @@
          </children>
       </VBox>
       <Text id="dashboardGreeting" layoutX="273.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back! Admin" />
-      <Text id="whatsNew" layoutX="242.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What's New?" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="244.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="457.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="692.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" />
-      <Text id="onSale" layoutX="244.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="On Sale!" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="244.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="457.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="712.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true" />
-      <FontAwesomeIcon glyphName="FIRE" layoutX="351.0" layoutY="140.0" scaleX="2.0" scaleY="2.0" />
+      <Text id="whatsNew" layoutX="242.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What's New?" />
+      <Text id="onSale" layoutX="244.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="On Sale!" />
+      <ImageView id="onSaleItem1" fitHeight="150.0" fitWidth="200.0" layoutX="244.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView id="onSaleItem2" fitHeight="150.0" fitWidth="200.0" layoutX="457.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView id="onSaleItem3" fitHeight="150.0" fitWidth="200.0" layoutX="712.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true" />
+      <FontAwesomeIcon glyphName="FIRE" layoutX="351.0" layoutY="127.0" scaleX="2.0" scaleY="2.0" />
       <FontAwesomeIcon glyphName="MUSIC" layoutX="682.0" layoutY="62.0" scaleX="3.0" scaleY="3.0" />
-      <FontAwesomeIcon glyphName="BOLT" layoutX="317.0" layoutY="352.0" scaleX="2.0" scaleY="2.0" />
-      <Text layoutX="309.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <FontAwesomeIcon glyphName="BOLT" layoutX="317.0" layoutY="374.0" scaleX="2.0" scaleY="2.0" />
+      <Pane fx:id="whatsNew" layoutX="244.0" layoutY="160.0" prefHeight="166.0" prefWidth="783.0">
+         <children>
+            <Pane prefHeight="176.0" prefWidth="151.0" style="-fx-border-color: black; -fx-border-width: 1;">
+               <children>
+                  <ImageView fitHeight="120.0" fitWidth="128.0" layoutX="12.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: black; -fx-border-width: 5px;" />
+                  <Text layoutX="12.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" textAlignment="CENTER" wrappingWidth="128.0" />
+                  <Text layoutX="12.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" textAlignment="CENTER" wrappingWidth="128.0" />
+               </children>
+            </Pane>
+            <ImageView fitHeight="120.0" fitWidth="128.0" layoutX="180.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+            <Text layoutX="220.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+            <Text layoutX="220.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="570.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <Pane fx:id="onSale" layoutX="244.0" layoutY="388.0" prefHeight="166.0" prefWidth="783.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="15.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="270.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="570.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
    </children>
    <rotationAxis>
       <Point3D />

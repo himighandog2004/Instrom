@@ -18,12 +18,6 @@ public class App extends Application {
         primaryStage = stage;
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/assets/images/icon.png")));
         primaryStage.setResizable(false);
-        /*
-        primaryStage.setTitle("Log in to your Instrom Account");
-        scene = new Scene(loadFXML("Login"), 640, 480);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-        */
         changeStage("Login", "Log in to your Instrom Account", 640, 480);
     }
 
@@ -37,13 +31,6 @@ public class App extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-    // TODO: How to change stage or scene?
-    /*
-    https://stackoverflow.com/questions/33932309/how-to-access-a-javafx-stage-from-a-controller
-    static void changeScene(String fxmlName, int width, int height) throws IOException {
-        scene = new Scene(loadFXML(fxmlName), width, height);
-    }
-    */
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));

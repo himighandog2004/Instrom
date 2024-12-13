@@ -52,16 +52,11 @@ public class LoginController implements Initializable {
     
     @FXML
     private void Login() throws IOException {
-        // TODO: Validate login here and then proceed to home/dashboard
+        // Validate login here and then proceed to home/dashboard
         String userEmail = userInput.getText();
         String userPassword = userPass.getText();
         if(userEmail.equals(email) && userPassword.equals(password)){            
-            //App.setRoot("Dashboard");
-            //stage.setTitle("Dashboard");
-            App.changeStage("Dashboard", "Welcome to Dashboard", 1048, 588);
-            //App.setRoot("Dashboard");
-            //stage.setTitle("Dashboard");
-            //App.scene = new Scene(loadFXML("Login"), 640, 480);
+            App.changeStage("Dashboard", "Welcome to Instrom", 1048, 588);
         } else {
             attempts--;
             userAttempt.setText("Attempts remaining: " + attempts);

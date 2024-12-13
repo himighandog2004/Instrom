@@ -5,15 +5,12 @@ import com.mycompany.instrom.Stringed.Stringed.StringType;
 import java.util.ArrayList;
 
 public class MusicalInstrument {
-    public static final MusicalInstrument[] instruments = {
-        // Guitars
-        new Guitar("BAT1M Tahoma", "Bromo", "inspired by the majestic reputation of the Tahoma volcano in the Pacific Ring of Fire", "/assets/images/guitars/Bromo_BAT1M_Tahoma_Dreadnought_Acoustic_Guitar_(Natural).png", "1 Year", 9000.00, true, 88, StringType.STEEL, "Dreadnought", "Natural", 20, GuitarType.ACOUSTIC)
-        // Keyboards
-        // Bells
-        // Drums
-        // Harp
-        // Brass
-        // Woodwind
+    public static final MusicalInstrument[] guitars = {
+        new Guitar("BAT1M Tahoma", "Bromo", "inspired by the majestic reputation of the Tahoma volcano in the Pacific Ring of Fire", "/assets/images/guitars/Bromo_BAT1M_Tahoma_Dreadnought_Acoustic_Guitar_Natural.png", "1 Year", 9000.00, true, 88, StringType.STEEL, "Dreadnought", "Natural", 20, GuitarType.ACOUSTIC)
+    };
+    
+    public static final MusicalInstrument[] whatsNew = {
+        guitars[0]
     };
     
     public static ArrayList<MusicalInstrument> cart = new ArrayList<>();

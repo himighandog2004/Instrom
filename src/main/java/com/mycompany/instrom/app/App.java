@@ -10,22 +10,33 @@ import javafx.scene.image.Image;
 
 public class App extends Application {
 
+    private static Stage primaryStage; // Store a reference to the primary stage
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/assets/images/icon.png")));
-        stage.setTitle("Log in to your Instrom Account");
+        primaryStage = stage;
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/assets/images/icon.png")));
+        primaryStage.setResizable(false);
+        /*
+        primaryStage.setTitle("Log in to your Instrom Account");
         scene = new Scene(loadFXML("Login"), 640, 480);
-        stage.setScene(scene);  
-        stage.setResizable(false);
-        stage.show();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        */
+        changeStage("Login", "Log in to your Instrom Account", 640, 480);
     }
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
     
+    static void changeStage(String fxml, String title, int width, int height) throws IOException {
+        primaryStage.setTitle(title);
+        scene = new Scene(loadFXML(fxml), width, height);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
     // TODO: How to change stage or scene?
     /*
     https://stackoverflow.com/questions/33932309/how-to-access-a-javafx-stage-from-a-controller

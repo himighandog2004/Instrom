@@ -15,7 +15,8 @@ public class Stringed extends MusicalInstrument {
     public enum StringType {
         NYLON,
         STEEL,
-        GUT
+        GUT,
+        NICKEL
     }
     
     private final int numberOfStrings;

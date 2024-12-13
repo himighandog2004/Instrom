@@ -20,12 +20,8 @@ public class App extends Application {
         primaryStage.setResizable(false);
         changeStage("Login", "Log in to your Instrom Account", 640, 480);
     }
-
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
     
-    static void changeStage(String fxml, String title, int width, int height) throws IOException {
+    public static void changeStage(String fxml, String title, int width, int height) throws IOException {
         primaryStage.setTitle(title);
         scene = new Scene(loadFXML(fxml), width, height);
         primaryStage.setScene(scene);

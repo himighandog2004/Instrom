@@ -37,7 +37,11 @@ public class CartController implements Initializable {
     @FXML
     private TableColumn<MusicalInstrument, Double> subtotalColumn;
     
-    private ObservableList<MusicalInstrument> cartList;
+    public void initialize(URL url, ResourceBundle rb) {
+        
+    }
+     
+    //private ObservableList<MusicalInstrument> cartList;
     /*
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
@@ -110,10 +114,5 @@ public class CartController implements Initializable {
         );
         cartTableView.setItems(cartList);
     }
-*/
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
-    }
+    */
 }

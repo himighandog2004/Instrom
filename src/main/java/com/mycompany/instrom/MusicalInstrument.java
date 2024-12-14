@@ -17,6 +17,7 @@ import com.mycompany.instrom.app.ItemViewController;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/*
 class CartItem {
         private final MusicalInstrument instrument;
         private int quantity;
@@ -38,7 +39,7 @@ class CartItem {
             return instrument;
         }
     }
-
+*/
 public class MusicalInstrument {
     public static final MusicalInstrument[] instruments = {
         // Guitars (0-8)
@@ -58,10 +59,10 @@ public class MusicalInstrument {
         new Keyboard("CA701 Digital Piano", "Kawai", "K04", "A piano that will encourage enthusiastic players to become accomplished pianists, and transform living rooms into grand concert halls. ", "/assets/images/keyboards/kawai_ca701.png", "5 years", 285719.25, true, 1, 88, false),
         new Keyboard("CHANSON 12 Bass Accordion", "Chanson", "K05", "It is lightweight and compact accordion, ideal as a beginners instrument and for children to learn on.", "/assets/images/keyboards/chanson_accordion.png", "No warranty", 21853.00, true, 1, 25, false),
         // Bells (14-18)
-        new Bells("MUSSER Orchestra Bells M645", "Ludwig-Musser", "BE01", "Orchestra bell made with high-carbon tempered steel that will deliver unsurpassed tone, clarity and resonance", "/assets/images/bells/musser_bell_m645.png", "No warranty", 87165.25, true, 1, "Steel", "32x3.5 inches"),
-        new Bells("SCHULMERICH Individual Hand Bells", "BE02", "1ST OCTAVE (C5-C6)", "A high-quality handbell set with a rich, resonant tone. ", "/assets/images/bells/schulmerich_bell_c5c6.png", "No warranty", 39000.00, true, 1, "Bronze", "Not specified"),
-        new Bells("Aluminum Handbell with Case", "N/A", "BE03", "A bell made with aluminum that provides a strong fundamental tone and reduce the weight to about half of the bronze.", "/assets/images/bells/malmark_alum_bell.png", "Not specified", 160000.00, true, 1, "Aluminum", "18.375x19.5 inches"),
-        new Bells("YAMAHA YG-250D Glockenspiel", "Yamaha", "BE04", "A high-carbon made glockenspiel that offers a pure, bright tone, and nodal point support string with single pin bar mounting.", "/assets/images/bells/yamaha_yg250d.png", "1 year", 72920.00, true, 1, "High-carbon steel", "73x46cm"),
+        new Bells("MUSSER Orchestra Bells M645", "Ludwig-Musser", "BE01", "Orchestra bell made with high-carbon tempered steel that will deliver unsurpassed tone, clarity and resonance", "/assets/images/bells/musser_bell_m645.png", "No warranty", 87165.25, true, 7, "Steel", "32x3.5 inches"),
+        new Bells("SCHULMERICH Individual Hand Bells", "BE02", "1ST OCTAVE (C5-C6)", "A high-quality handbell set with a rich, resonant tone. ", "/assets/images/bells/schulmerich_bell_c5c6.png", "No warranty", 39000.00, true, 13, "Bronze", "Not specified"),
+        new Bells("Aluminum Handbell with Case", "N/A", "BE03", "A bell made with aluminum that provides a strong fundamental tone and reduce the weight to about half of the bronze.", "/assets/images/bells/malmark_alum_bell.png", "Not specified", 160000.00, true, 5, "Aluminum", "18.375x19.5 inches"),
+        new Bells("YAMAHA YG-250D Glockenspiel", "Yamaha", "BE04", "A high-carbon made glockenspiel that offers a pure, bright tone, and nodal point support string with single pin bar mounting.", "/assets/images/bells/yamaha_yg250d.png", "1 year", 72920.00, true, 6, "High-carbon steel", "73x46cm"),
         new Bells("MUSSER M500 Marimba", "Musser", "BE05", "This 5-octave marimba features select hand-tuned Honduras Rosewood bars, which provide a full and rich tone.", "/assets/images/bells/musser_m500.png", "Not specified", 1129847.50, true, 1, "Rosewood", "107x41 inches"),
         // Harp (19-20)
         new Harp("Heritage 22-String Heather Harp", "SKU", "H01", "Offers a rich, resonant tone perfect for beginners and experienced harpists alike.", "/assets/images/harp/Silver Harp Bundle - Heritage 22 String Heather Harp.png", "2 Years", 48227.03, true, 22, 1, StringType.NYLON, "Traditional Celtic", "Light Brown"),
@@ -95,10 +96,12 @@ public class MusicalInstrument {
     public static final MusicalInstrument[] onSale = {
         instruments[1],
         instruments[0],
-        instruments[18]
+        instruments[18],
+        instruments[10]
     };
     
-    public static ArrayList<CartItem> cart = new ArrayList<>();
+    //public static ArrayList<CartItem> cart = new ArrayList<>();
+    public static ArrayList<MusicalInstrument> cart = new ArrayList<>();
     
     
     public MusicalInstrument(String name, String brand, String id, String description, String image, InstrumentCategory category, String warrantyPeriod, double price, boolean available, int quantity) {
@@ -205,6 +208,7 @@ public class MusicalInstrument {
     
     public static void displayItem(String id) throws IOException {
         MusicalInstrument chosenInstrument = getItemBasedOnID(id);
+        /*
         ItemViewController.setImage(chosenInstrument.getImage());
         ItemViewController.setName(chosenInstrument.getName());
         ItemViewController.setDescription(chosenInstrument.getDescription());
@@ -212,7 +216,8 @@ public class MusicalInstrument {
         ItemViewController.setCategory(chosenInstrument.getCategory().name());
         ItemViewController.setWarrantyPeriod(chosenInstrument.getWarrantyPeriod());
         ItemViewController.setPrice("₱ " + chosenInstrument.getPrice());
-        
+        */
+        ItemViewController.instrument = chosenInstrument;
         // Additional details
    
         if (chosenInstrument instanceof Guitar) {

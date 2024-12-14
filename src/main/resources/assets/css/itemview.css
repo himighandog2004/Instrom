@@ -39,9 +39,9 @@
     -fx-font-size: 12px;
 }
 
-#priceLabel {
+#priceLabel, #quantityLabel {
     -fx-font-family: "Montserrat Bold";
-    -fx-font-size: 16px;
+    -fx-font-size: 22px;
 }
 
 #price {
@@ -58,7 +58,7 @@
     -fx-font-size: 12px;
 }
 
-#goBackButton, #addToCartButton {
+#goBackButton, #addToCartButton, #viewCartButton {
     -fx-font-family: "Montserrat Bold";
     -fx-font-size: 14px;
     -fx-background-color: #967126;
@@ -66,11 +66,27 @@
     transition: -fx-background-color;
 }
 
-#goBackButton:hover, #addToCartButton:hover {
+#decrementButton, #incrementButton {
+    -fx-font-family: "Montserrat Bold";
+    -fx-font-size: 14px;
+    -fx-text-fill: #3A3B3C;
+}
+
+#addToCartButton, #viewCartButton {
+    -fx-font-size: 18px;
+}
+
+#decrementButton:disabled, #incrementButton:disabled, #addToCartButton:disabled, #viewCartButton:disabled {
+    -fx-opacity: 0.5; /* Makes it appear dim */
+    -fx-background-color: gray; /* Change the background */
+    -fx-text-fill: lightgray; /* Change text color */
+}
+
+#goBackButton:hover, #addToCartButton:hover, #viewCartButton:hover {
     -fx-background-color: #b48d37;
 }
 
-#goBackButton:pressed, #addToCartButton:pressed {
+#goBackButton:pressed, #addToCartButton:pressed, #viewCartButton:hover {
     -fx-background-color: #7a5b1f;
 }
 

@@ -17,6 +17,28 @@ import com.mycompany.instrom.app.ItemViewController;
 import java.io.IOException;
 import java.util.ArrayList;
 
+class CartItem {
+        private final MusicalInstrument instrument;
+        private int quantity;
+        
+        public CartItem(MusicalInstrument instrument, int quantity) {
+            this.instrument = instrument;
+            this.quantity = quantity;
+        }
+        
+        public int getQuantity() {
+            return quantity;
+        }
+        
+        public void setQuantity(int qty) {
+            this.quantity = qty;
+        }
+        
+        public MusicalInstrument getInstrument() {
+            return instrument;
+        }
+    }
+
 public class MusicalInstrument {
     public static final MusicalInstrument[] instruments = {
         // Guitars (0-8)
@@ -76,7 +98,8 @@ public class MusicalInstrument {
         instruments[18]
     };
     
-    public static ArrayList<MusicalInstrument> cart = new ArrayList<>();
+    public static ArrayList<CartItem> cart = new ArrayList<>();
+    
     
     public MusicalInstrument(String name, String brand, String id, String description, String image, InstrumentCategory category, String warrantyPeriod, double price, boolean available, int quantity) {
         this.name = name;
@@ -108,7 +131,7 @@ public class MusicalInstrument {
     private double price;
     private int quantity;
     private boolean available;
-
+      
     public String getName() {
         return name;
     }
@@ -144,7 +167,7 @@ public class MusicalInstrument {
     public String getWarrantyPeriod() {
         return warrantyPeriod;
     }
-
+    
     public double getPrice() {
         return price;
     }
@@ -157,9 +180,6 @@ public class MusicalInstrument {
         this.warrantyPeriod = warrantyPeriod;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
 
     public void setAvailability(boolean available) {
         this.available = available;

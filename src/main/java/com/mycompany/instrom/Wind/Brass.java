@@ -11,15 +11,15 @@ public class Brass extends Wind {
         CHECK_VALVE
     }
 
-    public Brass(String name, String brand, String description, String image, String warrantyPeriod, double price, boolean available, String pitchRange, String boreShape, String mouthpiece, int valves, ValveType typeOfValve) {
-        super(name, brand, description, image, warrantyPeriod, price, available, pitchRange, boreShape);
+    public Brass(String name, String brand, String id, String description, String image, String warrantyPeriod, double price, boolean available, int quantity, String pitchRange, String boreShape, String mouthpiece, int valves, ValveType typeOfValve) {
+        super(name, brand, id, description, image, warrantyPeriod, price, available, quantity, pitchRange, boreShape);
         this.mouthpiece = mouthpiece;
         this.valves = valves;
         this.typeOfValve = typeOfValve;
     }
 
-    public Brass(String name, String brand, String description, String image, String warrantyPeriod, double price, boolean available, String pitchRange, String boreShape, ValveType typeOfValve) {
-        super(name, brand, description, image, warrantyPeriod, price, available, pitchRange, boreShape);
+    public Brass(String name, String brand, String id, String description, String image, String warrantyPeriod, double price, boolean available, int quantity, String pitchRange, String boreShape, ValveType typeOfValve) {
+        super(name, brand, id, description, image, warrantyPeriod, price, available, quantity, pitchRange, boreShape);
         this.typeOfValve = typeOfValve;
     }
     

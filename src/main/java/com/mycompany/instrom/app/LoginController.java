@@ -56,7 +56,7 @@ public class LoginController implements Initializable {
         String userEmail = userInput.getText();
         String userPassword = userPass.getText();
         if(userEmail.equals(email) && userPassword.equals(password)){            
-            App.changeStage("Dashboard", "Welcome to Instrom", 1048, 588);
+            App.changeStage("Dashboard", "Welcome to Instrom", 980, 588);
         } else {
             attempts--;
             userAttempt.setText("Attempts remaining: " + attempts);
@@ -110,7 +110,6 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        startImageAnimation();
-        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        startImageAnimation();        
     }
 }

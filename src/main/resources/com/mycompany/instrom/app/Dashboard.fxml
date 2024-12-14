@@ -44,7 +44,7 @@
                   <FontAwesomeIcon fill="WHITE" glyphName="USER" scaleX="1.5" scaleY="1.5" wrappingWidth="20.0" />
                </graphic>
             </Button>
-            <Button id="myCartButton" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="42.0" prefWidth="215.0" style="-fx-background-color: #3A3B3C;" text="MY CART" textFill="WHITE">
+            <Button id="myCartButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchToCart" prefHeight="42.0" prefWidth="215.0" style="-fx-background-color: #3A3B3C;" text="MY CART" textFill="WHITE">
                <padding>
                   <Insets left="40.0" />
                </padding>

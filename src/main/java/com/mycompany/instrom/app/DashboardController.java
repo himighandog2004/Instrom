@@ -19,9 +19,8 @@ public class DashboardController implements Initializable {
     private Pane onSale;
     
     @FXML
-    private void switchToPrimary() throws IOException {
-        App.setRoot("Login");
-        
+    private void switchToCart() throws IOException{
+        App.changeStage("Cart", "My Cart", 980, 588);
     }
     
     @Override

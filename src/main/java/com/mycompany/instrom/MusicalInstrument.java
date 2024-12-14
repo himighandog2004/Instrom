@@ -4,6 +4,28 @@ import com.mycompany.instrom.Stringed.Guitar.GuitarType;
 import com.mycompany.instrom.Stringed.Stringed.StringType;
 import java.util.ArrayList;
 
+class CartItem {
+        private final MusicalInstrument instrument;
+        private int quantity;
+        
+        public CartItem(MusicalInstrument instrument, int quantity) {
+            this.instrument = instrument;
+            this.quantity = quantity;
+        }
+        
+        public int getQuantity() {
+            return quantity;
+        }
+        
+        public void setQuantity(int qty) {
+            this.quantity = qty;
+        }
+        
+        public MusicalInstrument getInstrument() {
+            return instrument;
+        }
+    }
+
 public class MusicalInstrument {
     public static final MusicalInstrument[] guitars = {
         new Guitar("BAT1M Tahoma", "Bromo", "inspired by the majestic reputation of the Tahoma volcano in the Pacific Ring of Fire", "/assets/images/guitars/Bromo_BAT1M_Tahoma_Dreadnought_Acoustic_Guitar_Natural.png", "1 Year", 9000.00, true, 88, StringType.STEEL, "Dreadnought", "Natural", 20, GuitarType.ACOUSTIC)
@@ -13,7 +35,8 @@ public class MusicalInstrument {
         guitars[0]
     };
     
-    public static ArrayList<MusicalInstrument> cart = new ArrayList<>();
+    public static ArrayList<CartItem> cart = new ArrayList<>();
+    
     
     public MusicalInstrument(String name, String brand, String description, String image, InstrumentCategory category, String warrantyPeriod, double price, boolean available) {
         this.name = name;
@@ -24,7 +47,10 @@ public class MusicalInstrument {
         this.warrantyPeriod = warrantyPeriod;
         this.price = price;
         this.available = available;
+        
     }
+    
+    
     
     public enum InstrumentCategory {
         STRINGED,
@@ -39,9 +65,10 @@ public class MusicalInstrument {
     private final String image;
     private final InstrumentCategory category;
     private String warrantyPeriod;
-    private double price;
+    private final double price;
     private boolean available;
-
+    private int quantity;
+      
     public String getName() {
         return name;
     }
@@ -65,7 +92,7 @@ public class MusicalInstrument {
     public String getWarrantyPeriod() {
         return warrantyPeriod;
     }
-
+    
     public double getPrice() {
         return price;
     }
@@ -78,9 +105,6 @@ public class MusicalInstrument {
         this.warrantyPeriod = warrantyPeriod;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
 
     public void setAvailability(boolean available) {
         this.available = available;

@@ -2,14 +2,14 @@ package com.mycompany.instrom.Stringed;
 
 public class Bowed extends Stringed {
 
-    public Bowed(String name, String brand, String description, String image, String warrantyPeriod, double price, boolean available, int numberOfStrings, StringType typeOfString, String bodyShape, String color, BowType typeOfBow, String playingPosition) {
-        super(name, brand, description, image, warrantyPeriod, price, available, numberOfStrings, typeOfString, bodyShape, color);
+    public Bowed(String name, String brand, String id, String description, String image, String warrantyPeriod, double price, boolean available, int quantity, int numberOfStrings, StringType typeOfString, String bodyShape, String color, BowType typeOfBow, String playingPosition) {
+        super(name, brand, id, description, image, warrantyPeriod, price, available, quantity, numberOfStrings, typeOfString, bodyShape, color);
         this.typeOfBow = typeOfBow;
         this.playingPosition = playingPosition;
     }
     
-    public Bowed(String name, String brand, String description, String image, String warrantyPeriod, double price, boolean available, int numberOfStrings, StringType typeOfString, String bodyShape, String color, BowType typeOfBow) {
-        super(name, brand, description, image, warrantyPeriod, price, available, numberOfStrings, typeOfString, bodyShape, color);
+    public Bowed(String name, String brand, String id, String description, String image, String warrantyPeriod, double price, boolean available, int quantity, int numberOfStrings, StringType typeOfString, String bodyShape, String color, BowType typeOfBow) {
+        super(name, brand, id, description, image, warrantyPeriod, price, available, quantity, numberOfStrings, typeOfString, bodyShape, color);
         this.typeOfBow = typeOfBow;
     }
     

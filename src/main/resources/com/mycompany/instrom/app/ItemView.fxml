@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -20,26 +22,68 @@
    <center>
       <AnchorPane prefHeight="588.0" prefWidth="580.0" BorderPane.alignment="CENTER">
          <children>
-            <Text id="categoryLabel" layoutX="30.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category:" />
-            <Button layoutX="220.0" layoutY="469.0" mnemonicParsing="false" text="Add To Cart" />
-            <Text id="warrantyPeriodLabel" layoutX="30.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warranty Period:" />
-            <Text id="priceLabel" layoutX="32.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" />
-            <Button layoutX="420.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#goBack" text="Go Back">
+            <Button id="goBackButton" layoutX="400.0" layoutY="17.0" mnemonicParsing="false" onMouseClicked="#goBack" text="Go Back">
                <graphic>
-                  <FontAwesomeIcon glyphName="ARROW_LEFT" />
+                  <FontAwesomeIcon fill="WHITE" glyphName="ARROW_LEFT" />
                </graphic>
             </Button>
-            <Label id="itemName" fx:id="itemName" alignment="TOP_LEFT" layoutX="30.0" layoutY="50.0" prefHeight="91.0" prefWidth="408.0" text="Item Name" />
-            <Label id="brand" fx:id="brand" layoutX="79.0" layoutY="198.0" prefHeight="17.0" prefWidth="200.0" text="Brand Name" />
-            <Label id="description" fx:id="description" alignment="TOP_LEFT" layoutX="36.0" layoutY="141.0" prefHeight="57.0" prefWidth="422.0" text="Description">
-               <font>
-                  <Font name="System Italic" size="12.0" />
-               </font>
-            </Label>
-            <Label id="category" fx:id="category" layoutX="98.0" layoutY="231.0" prefHeight="17.0" prefWidth="154.0" text="Label" />
-            <Label id="warrantyPeriod" fx:id="warrantyPeriod" layoutX="145.0" layoutY="265.0" prefHeight="17.0" prefWidth="151.0" text="Label" />
-            <Label id="price" fx:id="price" layoutX="98.0" layoutY="357.0" text="₱ 99,000" />
-            <Text id="brandLabel" layoutX="30.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand:" />
+            <VBox layoutX="32.0" layoutY="60.0" prefHeight="333.0" prefWidth="443.0">
+               <children>
+                  <Label id="itemName" fx:id="itemName" alignment="TOP_LEFT" maxHeight="90.0" minHeight="-Infinity" prefWidth="400.0" text="Item Name" wrapText="true">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label id="description" fx:id="itemDescription" alignment="TOP_LEFT" maxHeight="105.0" minHeight="-Infinity" prefWidth="390.0" text="Description" wrapText="true">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane prefHeight="2.0" prefWidth="392.0">
+                     <children>
+                        <Text id="brandLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand:" textOrigin="TOP" />
+                        <Label id="brand" fx:id="itemBrand" alignment="TOP_LEFT" layoutX="50.0" prefHeight="17.0" prefWidth="200.0" text="Brand Name" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="20.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="2.0" prefWidth="392.0">
+                     <children>
+                        <Text id="categoryLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Category:" textOrigin="TOP" />
+                        <Label id="category" fx:id="itemCategory" alignment="TOP_LEFT" layoutX="70.0" prefHeight="17.0" prefWidth="154.0" text="Label" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="13.0" prefWidth="392.0">
+                     <children>
+                        <Text id="warrantyPeriodLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Warranty Period:" textOrigin="TOP" />
+                        <Label id="warrantyPeriod" fx:id="itemWarrantyPeriod" alignment="TOP_LEFT" layoutX="115.0" prefHeight="17.0" prefWidth="151.0" text="Label" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="154.0" prefHeight="13.0" prefWidth="392.0">
+                     <children>
+                        <Text id="warrantyPeriodLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Specifications:" textOrigin="TOP" />
+                        <Label id="warrantyPeriod" fx:id="itemAdditionalDetails" alignment="TOP_LEFT" contentDisplay="TOP" ellipsisString="" layoutX="15.0" layoutY="25.0" prefHeight="60.0" prefWidth="415.0" text="Label" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="35.0" prefWidth="392.0">
+                     <children>
+                        <Text id="priceLabel" layoutY="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" textOrigin="TOP" wrappingWidth="47.16800308227539" />
+                        <Label id="price" fx:id="itemPrice" alignment="TOP_LEFT" layoutX="60.0" prefHeight="30.0" prefWidth="220.0" text="₱ 99,000" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="60.0" top="60.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <Button id="addToCartButton" mnemonicParsing="false" text="Add To Cart" />
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
    </center>

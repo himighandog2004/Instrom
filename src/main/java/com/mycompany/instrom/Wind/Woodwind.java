@@ -9,15 +9,15 @@ public class Woodwind extends Wind {
         DOUBLE
     }
 
-    public Woodwind(String name, String brand, String description, String image, String warrantyPeriod, double price, boolean available, String pitchRange, String boreShape, int numberOfKeys, String ligatureType, ReedType typeOfReed) {
-        super(name, brand, description, image, warrantyPeriod, price, available, pitchRange, boreShape);
+    public Woodwind(String name, String brand, String id, String description, String image, String warrantyPeriod, double price, boolean available, int quantity, String pitchRange, String boreShape, int numberOfKeys, String ligatureType, ReedType typeOfReed) {
+        super(name, brand, id, description, image, warrantyPeriod, price, available, quantity, pitchRange, boreShape);
         this.typeOfReed = typeOfReed;
         this.numberOfKeys = numberOfKeys;
         this.ligatureType = ligatureType;
     }
 
-    public Woodwind(String name, String brand, String description, String image, String warrantyPeriod, double price, boolean available, String pitchRange, String boreShape, ReedType typeOfReed) {
-        super(name, brand, description, image, warrantyPeriod, price, available, pitchRange, boreShape);
+    public Woodwind(String name, String brand, String id, String description, String image, String warrantyPeriod, double price, boolean available, int quantity, String pitchRange, String boreShape, ReedType typeOfReed) {
+        super(name, brand, id, description, image, warrantyPeriod, price, available, quantity, pitchRange, boreShape);
         this.typeOfReed = typeOfReed;
     }
     

@@ -4,6 +4,7 @@ import com.mycompany.instrom.MusicalInstrument;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.ScaleTransition;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 public class DashboardController implements Initializable {
     @FXML
@@ -26,9 +28,7 @@ public class DashboardController implements Initializable {
          // Retrieve the source node (the Pane that was clicked)
         Pane source = (Pane) event.getSource();
         ObservableList<Node> children = source.getChildren();
-        String itemName = ((Label)children.get(1)).getText();
-        //TODO:  FIND INSTRUMENT INDEX HMMMM
-        MusicalInstrument.displayItem(itemName, );
+        MusicalInstrument.displayItem(source.getId());
     }
     
     @Override
@@ -38,7 +38,25 @@ public class DashboardController implements Initializable {
         ObservableList<Node> onSaleChildren = onSale.getChildren();
         
         for (int i = 0; i < MusicalInstrument.whatsNew.length; i++) {
-            ObservableList<Node> itemPane = ((Pane) whatsNewChildren.get(i)).getChildren();
+            Pane currentPane = (Pane) whatsNewChildren.get(i);
+            ObservableList<Node> itemPane = currentPane.getChildren();
+            
+            // ScaleTransition for hover effect
+            ScaleTransition scaleUp = new ScaleTransition(Duration.millis(300), currentPane); // 300ms animation
+            scaleUp.setToX(1.05);
+            scaleUp.setToY(1.05);
+
+            ScaleTransition scaleDown = new ScaleTransition(Duration.millis(300), currentPane); // 300ms animation
+            scaleDown.setToX(1.0); // Reset to original size
+            scaleDown.setToY(1.0);  
+            
+            // Add event handlers for hover
+            currentPane.setOnMouseEntered(event -> scaleUp.play());
+            currentPane.setOnMouseExited(event -> scaleDown.play());
+            
+            // Set the Pane's id to the instrument's id...
+            currentPane.setId(MusicalInstrument.whatsNew[i].getId());
+           
             for (int j = 0; j < itemPane.size(); j++) {
                 ImageView img = (ImageView) itemPane.get(j);
                 img.setImage(new Image(MusicalInstrument.whatsNew[i].getImage()));
@@ -52,7 +70,25 @@ public class DashboardController implements Initializable {
         }
         
         for (int i = 0; i < MusicalInstrument.onSale.length; i++) {
-            ObservableList<Node> itemPane = ((Pane) onSaleChildren.get(i)).getChildren();
+            Pane currentPane = (Pane) onSaleChildren.get(i);
+            ObservableList<Node> itemPane = currentPane.getChildren();
+            
+            // ScaleTransition for hover effect
+            ScaleTransition scaleUp = new ScaleTransition(Duration.millis(300), currentPane); // 300ms animation
+            scaleUp.setToX(1.05); // Scale to 120%
+            scaleUp.setToY(1.05);
+
+            ScaleTransition scaleDown = new ScaleTransition(Duration.millis(300), currentPane); // 300ms animation
+            scaleDown.setToX(1.0); // Reset to original size
+            scaleDown.setToY(1.0);  
+            
+            // Add event handlers for hover
+            currentPane.setOnMouseEntered(event -> scaleUp.play());
+            currentPane.setOnMouseExited(event -> scaleDown.play());
+            
+            // Set the Pane's id to the instrument's id...
+            currentPane.setId(MusicalInstrument.onSale[i].getId());
+            
             for (int j = 0; j < itemPane.size(); j++) {
                 ImageView img = (ImageView) itemPane.get(j);
                 img.setImage(new Image(MusicalInstrument.onSale[i].getImage()));

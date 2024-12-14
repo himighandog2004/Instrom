@@ -57,3 +57,24 @@
     -fx-font-family: "Montserrat Light";
     -fx-font-size: 12px;
 }
+
+#goBackButton, #addToCartButton {
+    -fx-font-family: "Montserrat Bold";
+    -fx-font-size: 14px;
+    -fx-background-color: #967126;
+    -fx-text-fill: white;
+    transition: -fx-background-color;
+}
+
+#goBackButton:hover, #addToCartButton:hover {
+    -fx-background-color: #b48d37;
+}
+
+#goBackButton:pressed, #addToCartButton:pressed {
+    -fx-background-color: #7a5b1f;
+}
+
+#additionalDetails {
+    -fx-font-family: "Montserrat Light";
+    -fx-font-size: 12px;
+}

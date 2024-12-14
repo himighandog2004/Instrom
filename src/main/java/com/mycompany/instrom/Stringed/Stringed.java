@@ -4,8 +4,8 @@ import com.mycompany.instrom.MusicalInstrument;
 
 public class Stringed extends MusicalInstrument {
 
-    public Stringed(String name, String brand, String description, String image, String warrantyPeriod, double price, boolean available, int numberOfStrings, StringType typeOfString, String bodyShape, String color) {
-        super(name, brand, description, image, InstrumentCategory.STRINGED, warrantyPeriod, price, available);
+    public Stringed(String name, String brand, String id, String description, String image, String warrantyPeriod, double price, boolean available, int quantity, int numberOfStrings, StringType typeOfString, String bodyShape, String color) {
+        super(name, brand, id, description, image, InstrumentCategory.STRINGED, warrantyPeriod, price, available, quantity);
         this.numberOfStrings = numberOfStrings;
         this.typeOfString = typeOfString;
         this.bodyShape = bodyShape;

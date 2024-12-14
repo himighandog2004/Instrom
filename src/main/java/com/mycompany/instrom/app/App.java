@@ -9,7 +9,6 @@ import java.io.IOException;
 import javafx.scene.image.Image;
 
 public class App extends Application {
-
     private static Stage primaryStage; // Store a reference to the primary stage
     private static Scene scene;
 

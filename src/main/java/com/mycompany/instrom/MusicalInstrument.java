@@ -28,11 +28,11 @@ public class MusicalInstrument {
         new Guitar("AW-41C", "Fernando", "G05", "Acoustic Guitar with Cutaway", "/assets/images/guitars/Fernando AW-41C Acoustic Guitar with Cutaway (Sunburst).png", "1 Year", 3240.00, true, 20, 6, StringType.STEEL, "Auditorium", "Brown", 20, GuitarType.ACOUSTIC),
         new Guitar("Ernie Music Man Reflex Game Changer Electric Guitar", "G06", "Ernie", "Ernie Music Man Electric guitar lets you unlock your instrument's complete power", "/assets/images/guitars/Ernie Ball Music Man Reflex Game Changer Electric Guitar (Black).png", "Lifetime", 130720.00, true, 1, 6, StringType.NICKEL, "VW Garadge Master", "Black", 22, GuitarType.ELECTRIC),
         new Guitar("G5421 Jet Club Rosewood Fingerboard", "G07", "Gretsch", "Gretsch Electromatic G5421 Jet Club electric guitar is just what you've been waiting for.", "/assets/images/guitars/Gretsch G5421 Jet Club Rosewood Fingerboard (Firebird Red).png", "2 Years", 38547.50, true, 2, 6, StringType.NICKEL, "Gretsch", "Red", 22, GuitarType.ELECTRIC),
-        new Guitar("American Vintage II 1966", "Fender", "G08", "Remarkably accurate take on the revolutionary designs that altered the course of musical history.", "/assets/images/guitars/Fender American Vintage II 1966 Jazz Bass Guitar with Rosewood Fretboard (3-Color Sunburst).png", "Lifetime ", 159300.00, true, 1, 4, StringType.NICKEL, "Fender", "Sunburst", 20, GuitarType.BASS),
-        new Guitar("Deluxe Active Jazz Bass Pau Ferro", "Fender", "G09", "Elegant and packed with versatile tones.", "/assets/images/guitars/Fender Deluxe Active Jazz Bass Pau Ferro.png", "2 Year", 61950.00, true, 1, 4, StringType.NICKEL, "Fender", "White", 20, GuitarType.BASS),
+        new Guitar("American Vintage II 1966", "Fender", "G08", "A remarkably accurate bass guitar take on the revolutionary designs that altered the course of musical history.", "/assets/images/guitars/Fender American Vintage II 1966 Jazz Bass Guitar with Rosewood Fretboard (3-Color Sunburst).png", "Lifetime ", 159300.00, true, 1, 4, StringType.NICKEL, "Fender", "Sunburst", 20, GuitarType.BASS),
+        new Guitar("Deluxe Active Jazz Bass Pau Ferro", "Fender", "G09", "An Elegant bass guitar packed with versatile tones.", "/assets/images/guitars/Fender Deluxe Active Jazz Bass Pau Ferro.png", "2 Year", 61950.00, true, 1, 4, StringType.NICKEL, "Fender", "White", 20, GuitarType.BASS),
         // Keyboards (9-13)
         new Keyboard("P-225 Black 88-Key Compact Digital Piano", "K01", "Yamaha", "A stylish digital piano that features a compact body equipped with useful features from practicing.", "/assets/images/keyboards/yamaha_88_key.png", "2 years", 43718.50, true, 1, 88, false),
-        new Keyboard("E-X20 Arranger Keyboard", "K02", "Roland", "The portable keyboard that sparks your child’s passion for music.", "/assets/images/keyboards/roland_keyboard.png", "1 year", 20852.00, false, 1, 61, false),
+        new Keyboard("E-X20 Arranger Keyboard", "K02", "Roland", "The portable piano keyboard that sparks your child’s passion for music.", "/assets/images/keyboards/roland_keyboard.png", "1 year", 20852.00, false, 1, 61, false),
         new Keyboard("GL-50 Grand Piano", "Kawai", "K03", "The grand piano that offers abundant tone quality, bass resonance, and versatile size that is perfect for professional teaching applications.", "/assets/images/keyboards/kawai_gl_50.png", "10 years", 2741147.50, true, 1, 88, true),
         new Keyboard("CA701 Digital Piano", "Kawai", "K04", "A piano that will encourage enthusiastic players to become accomplished pianists, and transform living rooms into grand concert halls. ", "/assets/images/keyboards/kawai_ca701.png", "5 years", 285719.25, true, 1, 88, false),
         new Keyboard("CHANSON 12 Bass Accordion", "Chanson", "K05", "It is lightweight and compact accordion, ideal as a beginners instrument and for children to learn on.", "/assets/images/keyboards/chanson_accordion.png", "No warranty", 21853.00, true, 1, 25, false),
@@ -196,9 +196,18 @@ public class MusicalInstrument {
         return null;
     }
     
-    public static MusicalInstrument[] getItemBasedOnName(String name) {
-        // TODO: Implement this for search functionality
-        return null;
+    public static ArrayList<MusicalInstrument> getItemBasedOnName(String query) {
+        ArrayList<MusicalInstrument> matchingInstruments = new ArrayList<>();
+        String lowerCaseSearchTerm = query.toLowerCase();
+
+        for (MusicalInstrument instrument : instruments) {
+            if (instrument.getName().toLowerCase().contains(lowerCaseSearchTerm) ||
+                instrument.getDescription().toLowerCase().contains(lowerCaseSearchTerm)) {
+                matchingInstruments.add(instrument);
+            }
+        }
+
+        return matchingInstruments;
     };
     
     public static void displayItem(String id) throws IOException {

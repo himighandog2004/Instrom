@@ -3,6 +3,7 @@ package com.mycompany.instrom.app;
 import com.mycompany.instrom.MusicalInstrument;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.animation.ScaleTransition;
 import javafx.collections.ObservableList;
@@ -10,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -24,16 +26,31 @@ public class DashboardController implements Initializable {
     private Pane onSale;
     
     @FXML
+    private TextField searchBar;
+    
+    @FXML
     private void clickOnItem(MouseEvent event) throws IOException {
-         // Retrieve the source node (the Pane that was clicked)
+        // Retrieve the source node (the Pane that was clicked)
         Pane source = (Pane) event.getSource();
-        ObservableList<Node> children = source.getChildren();
         MusicalInstrument.displayItem(source.getId());
     }
   
     @FXML
     private void switchToCart() throws IOException {
         App.changeStage("Cart", "My Cart", 980, 588);
+    }
+    
+    @FXML
+    private void switchToAccount() throws IOException {
+        App.changeStage("Account", "Instrom Account", 980, 588);
+    }
+    
+    @FXML
+    private void searchItem() throws IOException {
+        SearchController.searchQuery = searchBar.getText();
+        //App.changeStage("Search", "Search results for: " + SearchController.searchQuery, 980, 588);
+        SearchController.searchResults = MusicalInstrument.getItemBasedOnName(SearchController.searchQuery);
+        SearchController.switchToSearch();
     }
     
     @Override

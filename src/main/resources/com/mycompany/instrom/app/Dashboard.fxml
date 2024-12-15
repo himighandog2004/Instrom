@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="980.0" style="-fx-background-color: white;" stylesheets="@../../../../assets/css/dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.instrom.app.DashboardController">
@@ -36,7 +37,7 @@
                   <FontAwesomeIcon fill="WHITE" glyphName="HOME" scaleX="1.5" scaleY="1.5" wrappingWidth="20.0" />
                </graphic>
             </Button>
-            <Button id="myAccountButton" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="42.0" prefWidth="209.0" style="-fx-background-color: #3A3B3C;" text="MY ACCOUNT" textFill="WHITE">
+            <Button id="myAccountButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchToAccount" prefHeight="42.0" prefWidth="209.0" style="-fx-background-color: #3A3B3C;" text="MY ACCOUNT" textFill="WHITE">
                <padding>
                   <Insets left="40.0" />
                </padding>
@@ -68,20 +69,19 @@
                   <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" />
                </graphic>
             </Label>
-            <TextField alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0">
+            <TextField fx:id="searchBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0">
                <VBox.margin>
                   <Insets bottom="16.0" top="8.0" />
                </VBox.margin>
             </TextField>
-            <Button id="searchButton" mnemonicParsing="false" text="Search" />
+            <Button id="searchButton" fx:id="searchButton" mnemonicParsing="false" onMouseClicked="#searchItem" text="Search" />
          </children>
       </VBox>
-      <Text id="dashboardGreeting" layoutX="274.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back! Admin" />
       <Text id="whatsNew" layoutX="232.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WHAT'S NEW?" />
       <Text id="onSale" layoutX="232.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ON SALE!" />
-      <FontAwesomeIcon glyphName="FIRE" layoutX="350.0" layoutY="122.0" scaleX="2.0" scaleY="2.0" />
-      <FontAwesomeIcon glyphName="MUSIC" layoutX="683.0" layoutY="48.0" scaleX="3.0" scaleY="3.0" />
-      <FontAwesomeIcon glyphName="BOLT" layoutX="312.0" layoutY="357.0" scaleX="2.0" scaleY="2.0" />
+      <FontAwesomeIcon fill="#d06e18" glyphName="FIRE" layoutX="350.0" layoutY="122.0" scaleX="2.0" scaleY="2.0" />
+      <FontAwesomeIcon glyphName="MUSIC" layoutX="920.0" layoutY="46.0" scaleX="3.0" scaleY="3.0" />
+      <FontAwesomeIcon fill="#bf9730" glyphName="BOLT" layoutX="312.0" layoutY="357.0" scaleX="2.0" scaleY="2.0" />
       <Pane fx:id="whatsNew" layoutX="244.0" layoutY="142.0" prefHeight="166.0" prefWidth="736.0">
          <children>
             <Pane onMouseClicked="#clickOnItem" prefHeight="176.0" prefWidth="151.0" style="-fx-border-color: black; -fx-border-width: 1;">
@@ -146,6 +146,12 @@
             </Pane>
          </children>
       </Pane>
+      <Text id="dashboardGreeting" fill="#575656" layoutX="235.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" wrappingWidth="206.0" />
+      <Text layoutX="438.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back! Admin" wrappingWidth="150.9999999999999">
+         <font>
+            <Font name="Montserrat Light" size="12.0" />
+         </font>
+      </Text>
    </children>
    <rotationAxis>
       <Point3D />

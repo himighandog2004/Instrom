@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
@@ -26,6 +27,11 @@ public class CartController implements Initializable {
     @FXML
     private void switchToDashboard() throws IOException{
         App.changeStage("Dashboard", "Welcome to Dashboard!", 980, 588);
+    }
+    
+    @FXML
+    private void switchToAccount() throws IOException {
+        App.changeStage("Account", "Instrom Account", 980, 588);
     }
     
     //Connecting FXML to Controllers
@@ -146,16 +152,24 @@ public class CartController implements Initializable {
     @FXML
     private void proceedToCheckout() throws IOException {
         // Remove items from cart then set each cart quantity to 0, also refresh the balance
-        App.myAccount.setBalance(currentPaymentMethodSelected, chngAmnt);
+        App.myAccount.setBalance(currentPaymentMethodSelected, chngAmnt);        
+        //cartList.clear();
         for (MusicalInstrument item : MusicalInstrument.cart) {
-            item.cartQuantity = 0;
+            item.cartQuantity = 0; 
+            if (item.getQuantity() == 0) item.setAvailability(false);
         }
-        MusicalInstrument.cart.clear();
-        JOptionPane.showMessageDialog(null, "Payment Successful! Thank you for your purchase!");           
-        switchToDashboard();
+        MusicalInstrument.cart = new ArrayList<>();
+        cartList.clear();
+        // Recalculate the receipt to reset it and refresh the paymentMethods
+        paymentMethod.getItems().clear();
+        paymentMethod.getItems().addAll(App.myAccount.getBalanceAsString());
+        paymentMethod.setValue(App.myAccount.getUserPaymentMethodAsString());
+        calculateReceipt();
+        cartTableView.refresh();
+        JOptionPane.showMessageDialog(null, "Payment Successful! Thank you for your purchase!");
     }
    
-    @FXML
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
         // If there are no items in cart
         if (MusicalInstrument.cart.isEmpty()) {
@@ -331,8 +345,6 @@ public class CartController implements Initializable {
         vat.setText("₱ " + round(vtAmnt));
         discount.setText(App.myAccount.getIsPwdOrSenior() ? String.valueOf("₱ " + round(dscAmnt)) : "N/A");
         grandTotalAmount.setText("₱ " + round(gtAmnt));
-        
-
     }
 
     public void calculateChange() {
@@ -351,8 +363,16 @@ public class CartController implements Initializable {
         // If the change is negative disable the proceed to checkout button
         if (chngAmnt < 0 || MusicalInstrument.cart.isEmpty()) {
             proceedToCheckoutButton.setDisable(true);
+            changeLabel.setManaged(false);
+            changeLabel.setVisible(false);
+            change.setManaged(false);
+            change.setVisible(false);
         } else {
             proceedToCheckoutButton.setDisable(false);
+            changeLabel.setManaged(true);
+            changeLabel.setVisible(true);
+            change.setManaged(true);
+            change.setVisible(true);
         }
     }
     

@@ -1,0 +1,55 @@
+/* Loading all of the fonts included in the login page */
+@font-face {
+    font-family: 'Montserrat ExtraBold';
+    src: url('../fonts/Montserrat/Montserrat-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat Light';
+    src: url('../fonts/Montserrat/Montserrat-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat Light';
+    src: url('../fonts/Montserrat/Montserrat-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat Medium';
+    src: url('../fonts/Montserrat/Montserrat-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat Bold';
+    src: url('../fonts/Montserrat/Montserrat-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat Regular';
+    src: url('../fonts/Montserrat/Montserrat-Regular.ttf');
+}
+
+#detailsLabel {
+    -fx-font-family: "Montserrat ExtraBold";
+    -fx-font-size: 18px;
+    -fx-text-fill: "#575656";
+}
+
+#details {
+    -fx-font-family: "Montserrat Regular";
+    -fx-font-size: 14px;
+    -fx-text-fill: "black";
+}
+
+#accountDetails {
+    -fx-font-family: "Montserrat ExtraBold";
+    -fx-font-size: 26px;
+}
+
+#goBackButton {
+    -fx-font-family: "Montserrat Bold";
+    -fx-font-size: 14px;
+    -fx-background-color: #967126;
+    -fx-text-fill: white;
+    transition: -fx-background-color;
+}

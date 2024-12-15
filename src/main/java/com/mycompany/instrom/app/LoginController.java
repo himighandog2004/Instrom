@@ -22,8 +22,7 @@ import javafx.util.Duration;
 import javax.swing.JOptionPane;
 
 public class LoginController implements Initializable {
-    private final String email = "admin@gmail.com";
-    private final String password = "password";
+    
     private int attempts = 4;
     private final String slideImgs[] = {
         "/assets/images/guitar0.jpg",
@@ -55,7 +54,7 @@ public class LoginController implements Initializable {
         // Validate login here and then proceed to home/dashboard
         String userEmail = userInput.getText();
         String userPassword = userPass.getText();
-        if(userEmail.equals(email) && userPassword.equals(password)){            
+        if(userEmail.equals(App.myAccount.getEmail()) && userPassword.equals(App.myAccount.getPassword())){            
             App.changeStage("Dashboard", "Welcome to Instrom", 980, 588);
         } else {
             attempts--;

@@ -1,15 +1,20 @@
 package com.mycompany.instrom.app;
 
+import com.mycompany.instrom.MusicalInstrument;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
+import javax.swing.JOptionPane;
 
 
 public class ItemViewController implements Initializable {
@@ -29,11 +34,44 @@ public class ItemViewController implements Initializable {
     private Label itemPrice;
     @FXML
     private Label itemAdditionalDetails;
+    @FXML
+    private TextField quantityField;
+    @FXML
+    private Button decrementButton;
+    @FXML
+    private Button incrementButton;
+    @FXML
+    private Button viewCartButton;
+    @FXML
+    private Button addToCartButton;
+    @FXML
+    private Text itemAvailabilityNote;
     
-    public static String image, name, brand, description, category, warrantyPeriod, price, additionalDetails;
+    public static String additionalDetails;
+    public static MusicalInstrument instrument;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // First check if item is available
+        if (!instrument.getAvailability()) {
+            decrementButton.setDisable(true);
+            incrementButton.setDisable(true);
+            quantityField.setDisable(true);
+            viewCartButton.setDisable(true);
+            addToCartButton.setDisable(true);
+            itemAvailabilityNote.setVisible(true);
+            itemAvailabilityNote.setManaged(true);
+        } else {
+            itemAvailabilityNote.setVisible(false);
+            itemAvailabilityNote.setManaged(false);
+        }
+        // Add a listener to allow only integers in the quantity field
+        quantityField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) { // Regex: \d* allows digits only
+                quantityField.setText(newValue.replaceAll("[^\\d]", "")); // Replace non-digits
+            }
+        });
+        
         // ScaleTransition for hover effect
         ScaleTransition scaleUp = new ScaleTransition(Duration.millis(300), itemImage); // 300ms animation
         scaleUp.setToX(1.05);
@@ -46,52 +84,63 @@ public class ItemViewController implements Initializable {
         // Add event handlers for hover
         itemImage.setOnMouseEntered(event -> scaleUp.play());
         itemImage.setOnMouseExited(event -> scaleDown.play());
-            
-        itemImage.setImage(new Image(image));
-        itemName.setText(name);
-        itemDescription.setText(description);
-        itemBrand.setText(brand);
-        itemCategory.setText(category);
-        itemWarrantyPeriod.setText(warrantyPeriod);
+ 
+        itemImage.setImage(new Image(instrument.getImage()));
+        itemName.setText(instrument.getName());
+        itemDescription.setText(instrument.getDescription());
+        itemBrand.setText(instrument.getBrand());
+        itemCategory.setText(instrument.getCategory().name());
+        itemWarrantyPeriod.setText(instrument.getWarrantyPeriod());
         itemAdditionalDetails.setText(additionalDetails);
-        itemPrice.setText(price);
+        itemPrice.setText("₱ " + instrument.getPrice());      
     }    
     
     @FXML
     private void goBack() throws IOException {
         App.changeStage("Dashboard", "Welcome to Instrom", 980, 588);
     }
+    
+    @FXML
+    private void decrementQuantity() {
+        try {
+            int currentValue = Integer.parseInt(quantityField.getText());
+            if (currentValue > 1) { // Prevent going below 1
+                quantityField.setText(String.valueOf(currentValue - 1));
+            }
+        } catch (NumberFormatException e) {
+            quantityField.setText("1"); // Reset to "1" if invalid
+        }
+    }
+    
+    @FXML
+    private void incrementQuantity() {
+        try {
+            int currentValue = Integer.parseInt(quantityField.getText());
+            if (currentValue < instrument.getQuantity()) {
+                quantityField.setText(String.valueOf(currentValue + 1));
+            }
+        } catch (NumberFormatException e) {
+            quantityField.setText("1");
+        }
+    }
+    
+    @FXML
+    private void switchToCart() throws IOException {
+        App.changeStage("Cart", "My Cart", 980, 588);
+    }
+    
+    @FXML
+    private void addItemToCart() {
+        try {
+            int qty = Integer.parseInt(quantityField.getText());      
+            MusicalInstrument.addToCart(instrument, qty);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Failed to add the item to the cart!");
+        }
+        
+    }
 
-   public static void setImage(String img) {
-       image = img;
-   }
-   
-   public static void setName(String nm) {
-       name = nm;
-   }
-   
-   public static void setDescription(String desc) {
-       description = desc;
-   }
-   
-   public static void setCategory(String ctg) {
-       category = ctg;
-   }
-   
-   public static void setWarrantyPeriod(String period) {
-       warrantyPeriod = period;
-   }
-   
-   public static void setPrice(String pr) {
-       price = pr;
-   }
-   
-   public static void setBrand(String br) {
-       brand = br;
-   }
-   
-   public static void setAdditionalDetails(String details) {
-       additionalDetails = details;
-   }
-   
+    public static void setAdditionalDetails(String details) {
+        additionalDetails = details;
+    } 
 }

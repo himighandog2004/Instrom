@@ -113,9 +113,15 @@ public class ItemViewController implements Initializable {
     }
     
     @FXML
-    private void incrementQuantity() throws IOException {
-        int qty = Integer.parseInt(quantityField.getText());
-        quantityField.setText("" + (qty + 1));
+    private void incrementQuantity() {
+        try {
+            int currentValue = Integer.parseInt(quantityField.getText());
+            if (currentValue < instrument.getQuantity()) {
+                quantityField.setText(String.valueOf(currentValue + 1));
+            }
+        } catch (NumberFormatException e) {
+            quantityField.setText("1");
+        }
     }
     
     @FXML
@@ -124,24 +130,14 @@ public class ItemViewController implements Initializable {
     }
     
     @FXML
-    private void addItemToCart() throws IOException {
-        // First get the quantity
-        int qty = Integer.parseInt(quantityField.getText());
-        int currentItemQuantity = instrument.getQuantity();
-        // Validate
-        if (qty > currentItemQuantity) {
-            JOptionPane.showMessageDialog(null, "Unable to add item! There's " + currentItemQuantity + " item(s) remaining in stock.");
-            return;
-        }
-        // Proceed to add the item to the cart
-        if (!MusicalInstrument.cart.contains(instrument)) {
-            MusicalInstrument.cart.add(instrument);
+    private void addItemToCart() {
+        try {
+            int qty = Integer.parseInt(quantityField.getText());      
+            MusicalInstrument.addToCart(instrument, qty);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Failed to add the item to the cart!");
         }
         
-        instrument.setQuantity(currentItemQuantity - qty);
-        System.out.println("The item now has: " + instrument.getQuantity());
-        
-        JOptionPane.showMessageDialog(null, "Successfully added the item to the cart!");
     }
 
     public static void setAdditionalDetails(String details) {

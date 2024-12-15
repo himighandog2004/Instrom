@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.instrom.app.CartController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="980.0" stylesheets="@../../../../assets/css/cart.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.instrom.app.CartController">
    <children>
       <HBox prefHeight="130.0" prefWidth="980.0" style="-fx-background-color: #3A3B3C;">
          <children>
@@ -41,20 +45,108 @@
                <children>
                   <Button alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: #3A3B3C;" textFill="WHITE" />
                   <Button mnemonicParsing="false" onMouseClicked="#switchToDashboard" style="-fx-background-color: #3A3B3C;" />
-                  <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="342.0" layoutY="64.0" onMouseClicked="#switchToDashboard" size="36px" text="" textOrigin="CENTER" />
-                  <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="295.0" layoutY="77.0" size="36px" wrappingWidth="11.142857551574707" />
+                  <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="376.0" layoutY="65.0" onMouseClicked="#switchToDashboard" size="36px" text="" textOrigin="CENTER" />
+                  <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="325.0" layoutY="77.0" size="36px" wrappingWidth="11.142857551574707" />
                </children>
             </AnchorPane>
          </children>
       </HBox>
-      <TableView fx:id="cartTableView" layoutX="50.0" layoutY="150.0" prefHeight="400.0" prefWidth="552.0">
+      <TableView fx:id="cartTableView" layoutX="30.0" layoutY="150.0" prefHeight="380.0" prefWidth="590.0">
         <columns>
-          <TableColumn fx:id="productColumn" prefWidth="263.0" text="Product" />
-          <TableColumn fx:id="priceColumn" prefWidth="98.0" text="Price" />
-            <TableColumn fx:id="quantityColumn" prefWidth="68.0" text="Quantity" />
-            <TableColumn fx:id="subtotalColumn" prefWidth="122.0" text="Subtotal" />
+            <TableColumn fx:id="itemIdColumn" prefWidth="75.0" text="Item ID" />
+          <TableColumn fx:id="productColumn" prefWidth="155.0" text="Product" />
+          <TableColumn fx:id="priceColumn" prefWidth="125.0" text=" Unit Price" />
+            <TableColumn fx:id="quantityColumn" prefWidth="113.0" text="Quantity" />
+            <TableColumn fx:id="amountColumn" prefWidth="125.0" text="Amount" />
         </columns>
       </TableView>
-      <ListView layoutX="700.0" layoutY="170.0" prefHeight="300.0" prefWidth="230.0" />
+      <Button fx:id="proceedToCheckoutButton" layoutX="752.0" layoutY="513.0" mnemonicParsing="false" onKeyPressed="#proceedToCheckout" text="Proceed to Checkout" />
+      <Button fx:id="removeFromCartButton" layoutX="507.0" layoutY="538.0" mnemonicParsing="false" onMouseClicked="#removeSelectedInstrument" text="Remove from Cart" />
+      <Text id="receiptDetails" layoutX="645.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RECEIPT DETAILS" />
+      <VBox layoutX="648.0" layoutY="194.0" prefHeight="260.0" prefWidth="320.0">
+         <children>
+            <HBox>
+               <children>
+                  <Text id="dateLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:">
+                     <HBox.margin>
+                        <Insets bottom="14.0" right="8.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Label id="date" fx:id="date" alignment="CENTER" contentDisplay="BOTTOM" prefHeight="16.0" text="Label" textAlignment="CENTER" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Text id="subTotalLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Subtotal:">
+                     <HBox.margin>
+                        <Insets bottom="14.0" right="8.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Label id="subtotal" fx:id="subtotal" prefHeight="16.0" text="Label" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Text id="vatLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="VAT (12%):">
+                     <HBox.margin>
+                        <Insets bottom="14.0" right="8.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Label id="vat" fx:id="vat" prefHeight="16.0" text="Label" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Text id="discountLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Discount (20%): ">
+                     <HBox.margin>
+                        <Insets bottom="14.0" right="8.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Label id="discount" fx:id="discount" prefHeight="16.0" text="Label" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Text id="paymentMethodLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Method: " wrappingWidth="134.9600067138672">
+                     <HBox.margin>
+                        <Insets bottom="14.0" right="4.0" top="4.0" />
+                     </HBox.margin>
+                  </Text>
+                  <ChoiceBox fx:id="paymentMethod" prefHeight="25.0" prefWidth="169.0" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Text id="grandTotalAmountLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Grand Total Amount: ">
+                     <HBox.margin>
+                        <Insets bottom="14.0" right="8.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Label id="grandTotalAmount" fx:id="grandTotalAmount" prefHeight="16.0" text="Label" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Text id="amountTenderedLabel" fx:id="amountTenderedLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount Tendered: ">
+                     <HBox.margin>
+                        <Insets bottom="14.0" right="4.0" top="4.0" />
+                     </HBox.margin>
+                  </Text>
+                  <TextField fx:id="amountTendered" prefHeight="16.0" prefWidth="135.0" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Text id="changeLabel" fx:id="changeLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Change:">
+                     <HBox.margin>
+                        <Insets right="8.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Label id="change" fx:id="change" prefHeight="16.0" text="Label" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button fx:id="viewItemFromStoreButton" layoutX="361.0" layoutY="538.0" mnemonicParsing="false" onMouseClicked="#viewItemFromStore" text="View Item from Store" />
    </children>
 </AnchorPane>

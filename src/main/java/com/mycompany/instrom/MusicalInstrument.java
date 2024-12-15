@@ -16,42 +16,20 @@ import com.mycompany.instrom.app.App;
 import com.mycompany.instrom.app.ItemViewController;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
-/*
-class CartItem {
-        private final MusicalInstrument instrument;
-        private int quantity;
-        
-        public CartItem(MusicalInstrument instrument, int quantity) {
-            this.instrument = instrument;
-            this.quantity = quantity;
-        }
-        
-        public int getQuantity() {
-            return quantity;
-        }
-        
-        public void setQuantity(int qty) {
-            this.quantity = qty;
-        }
-        
-        public MusicalInstrument getInstrument() {
-            return instrument;
-        }
-    }
-*/
 public class MusicalInstrument {
     public static final MusicalInstrument[] instruments = {
         // Guitars (0-8)
-        new Guitar("BAT1M Tahoma", "Bromo", "G01", "A guitar inspired by the majestic reputation of the Tahoma volcano in the Pacific Ring of Fire", "/assets/images/guitars/Bromo_BAT1M_Tahoma_Dreadnought_Acoustic_Guitar_Natural.png", "1 Year", 9000.00, true, 12, 8, StringType.STEEL, "Dreadnought", "Natural", 20, GuitarType.ACOUSTIC),
-        new Guitar("BR-160E ", "Blueridge", "G02", "Historic Series Solid Top Dreadnought Electric Acoustic Guitar.", "/assets/images/guitars/Blueridge BR-160E Historic Series Solid Top Dreadnought Electric Acoustic Guitar.png", "2 Year", 59415.00, true, 2, 8, StringType.STEEL, "Dreadnought", "Natural", 20, GuitarType.ACOUSTIC),
-        new Guitar("BR-40E", "Blueridge", "G03", "Solid Top Dreadnought Electric Acoustic Guitar", "/assets/images/guitars/Blueridge BR-40E Solid Top Dreadnought Electric Acoustic Guitar.png", "2 Years", 37145.00, true, 2, 8, StringType.STEEL, "Dreadnought", "Natural", 20, GuitarType.ACOUSTIC),
-        new Guitar("CC-60S", "Fender", "G04", "Concert Solid Top Acoustic Guitar Pack - Mahogany", "/assets/images/guitars/Fender CC-60S Concert Solid Top Acoustic Guitar Pack - Mahogany (970150422).png", "1 Year", 11857.50, true, 5, 8, StringType.STEEL, "Auditorium", "Brown", 20, GuitarType.ACOUSTIC),
-        new Guitar("AW-41C", "Fernando", "G05", "Acoustic Guitar with Cutaway", "/assets/images/guitars/Fernando AW-41C Acoustic Guitar with Cutaway (Sunburst).png", "1 Year", 3240.00, true, 20, 88, StringType.STEEL, "Auditorium", "Brown", 20, GuitarType.ACOUSTIC),
-        new Guitar("Ernie Music Man Reflex Game Changer Electric Guitar", "G06", "Ernie", "Ernie Music Man Electric guitar lets you unlock your instrument's complete power", "/assets/images/guitars/Ernie Ball Music Man Reflex Game Changer Electric Guitar (Black).png", "Lifetime", 130720.00, true, 1, 8, StringType.NICKEL, "VW Garadge Master", "Black", 22, GuitarType.ELECTRIC),
-        new Guitar("G5421 Jet Club Rosewood Fingerboard", "G07", "Gretsch", "Gretsch Electromatic G5421 Jet Club electric guitar is just what you've been waiting for.", "/assets/images/guitars/Gretsch G5421 Jet Club Rosewood Fingerboard (Firebird Red).png", "2 Years", 38547.50, true, 2, 8, StringType.NICKEL, "Gretsch", "Red", 22, GuitarType.ELECTRIC),
-        new Guitar("American Vintage II 1966", "Fender", "G08", "Remarkably accurate take on the revolutionary designs that altered the course of musical history.", "/assets/images/guitars/Fender American Vintage II 1966 Jazz Bass Guitar with Rosewood Fretboard (3-Color Sunburst).png", "Lifetime ", 159300.00, true, 1, 8, StringType.NICKEL, "Fender", "Sunburst", 20, GuitarType.BASS),
-        new Guitar("Deluxe Active Jazz Bass Pau Ferro", "Fender", "G09", "Elegant and packed with versatile tones.", "/assets/images/guitars/Fender Deluxe Active Jazz Bass Pau Ferro.png", "2 Year", 61950.00, true, 1, 88, StringType.NICKEL, "Fender", "White", 20, GuitarType.BASS),
+        new Guitar("BAT1M Tahoma", "Bromo", "G01", "A guitar inspired by the majestic reputation of the Tahoma volcano in the Pacific Ring of Fire", "/assets/images/guitars/Bromo_BAT1M_Tahoma_Dreadnought_Acoustic_Guitar_Natural.png", "1 Year", 9000.00, true, 12, 6, StringType.STEEL, "Dreadnought", "Natural", 20, GuitarType.ACOUSTIC),
+        new Guitar("BR-160E ", "Blueridge", "G02", "Historic Series Solid Top Dreadnought Electric Acoustic Guitar.", "/assets/images/guitars/Blueridge BR-160E Historic Series Solid Top Dreadnought Electric Acoustic Guitar.png", "2 Year", 59415.00, true, 2, 6, StringType.STEEL, "Dreadnought", "Natural", 20, GuitarType.ACOUSTIC),
+        new Guitar("BR-40E", "Blueridge", "G03", "Solid Top Dreadnought Electric Acoustic Guitar", "/assets/images/guitars/Blueridge BR-40E Solid Top Dreadnought Electric Acoustic Guitar.png", "2 Years", 37145.00, true, 2, 6, StringType.STEEL, "Dreadnought", "Natural", 20, GuitarType.ACOUSTIC),
+        new Guitar("CC-60S", "Fender", "G04", "Concert Solid Top Acoustic Guitar Pack - Mahogany", "/assets/images/guitars/Fender CC-60S Concert Solid Top Acoustic Guitar Pack - Mahogany (970150422).png", "1 Year", 11857.50, true, 5, 6, StringType.STEEL, "Auditorium", "Brown", 20, GuitarType.ACOUSTIC),
+        new Guitar("AW-41C", "Fernando", "G05", "Acoustic Guitar with Cutaway", "/assets/images/guitars/Fernando AW-41C Acoustic Guitar with Cutaway (Sunburst).png", "1 Year", 3240.00, true, 20, 6, StringType.STEEL, "Auditorium", "Brown", 20, GuitarType.ACOUSTIC),
+        new Guitar("Ernie Music Man Reflex Game Changer Electric Guitar", "G06", "Ernie", "Ernie Music Man Electric guitar lets you unlock your instrument's complete power", "/assets/images/guitars/Ernie Ball Music Man Reflex Game Changer Electric Guitar (Black).png", "Lifetime", 130720.00, true, 1, 6, StringType.NICKEL, "VW Garadge Master", "Black", 22, GuitarType.ELECTRIC),
+        new Guitar("G5421 Jet Club Rosewood Fingerboard", "G07", "Gretsch", "Gretsch Electromatic G5421 Jet Club electric guitar is just what you've been waiting for.", "/assets/images/guitars/Gretsch G5421 Jet Club Rosewood Fingerboard (Firebird Red).png", "2 Years", 38547.50, true, 2, 6, StringType.NICKEL, "Gretsch", "Red", 22, GuitarType.ELECTRIC),
+        new Guitar("American Vintage II 1966", "Fender", "G08", "Remarkably accurate take on the revolutionary designs that altered the course of musical history.", "/assets/images/guitars/Fender American Vintage II 1966 Jazz Bass Guitar with Rosewood Fretboard (3-Color Sunburst).png", "Lifetime ", 159300.00, true, 1, 4, StringType.NICKEL, "Fender", "Sunburst", 20, GuitarType.BASS),
+        new Guitar("Deluxe Active Jazz Bass Pau Ferro", "Fender", "G09", "Elegant and packed with versatile tones.", "/assets/images/guitars/Fender Deluxe Active Jazz Bass Pau Ferro.png", "2 Year", 61950.00, true, 1, 4, StringType.NICKEL, "Fender", "White", 20, GuitarType.BASS),
         // Keyboards (9-13)
         new Keyboard("P-225 Black 88-Key Compact Digital Piano", "K01", "Yamaha", "A stylish digital piano that features a compact body equipped with useful features from practicing.", "/assets/images/keyboards/yamaha_88_key.png", "2 years", 43718.50, true, 1, 88, false),
         new Keyboard("E-X20 Arranger Keyboard", "K02", "Roland", "The portable keyboard that sparks your child’s passion for music.", "/assets/images/keyboards/roland_keyboard.png", "1 year", 20852.00, false, 1, 61, false),
@@ -99,7 +77,7 @@ public class MusicalInstrument {
         instruments[18],
         instruments[10]
     };
-    
+ 
     //public static ArrayList<CartItem> cart = new ArrayList<>();
     public static ArrayList<MusicalInstrument> cart = new ArrayList<>();
     
@@ -131,9 +109,10 @@ public class MusicalInstrument {
     private final String id;
     private final InstrumentCategory category;
     private String warrantyPeriod;
-    private double price;
+    private final double price;
     private int quantity;
     private boolean available;
+    public int cartQuantity = 0;
       
     public String getName() {
         return name;
@@ -188,8 +167,24 @@ public class MusicalInstrument {
         this.available = available;
     }
     
-    public void addToCart() {
+    public static void addToCart(MusicalInstrument instr, int qty) {
+        int currentItemQuantity = instr.getQuantity();
+        // Validate
+        if (qty > currentItemQuantity) {
+            JOptionPane.showMessageDialog(null, "Unable to add item! There's " + currentItemQuantity + " item(s) remaining in stock.");
+            return;
+        }
         
+        // Proceed to add the item to the cart
+        if (!MusicalInstrument.cart.contains(instr)) {
+            MusicalInstrument.cart.add(instr);
+        }
+        
+        instr.setQuantity(currentItemQuantity - qty);
+        instr.cartQuantity += qty;
+        
+        System.out.println("The item now has: " + instr.getQuantity() + " while cart quantity is: " + instr.cartQuantity);
+        JOptionPane.showMessageDialog(null, "Successfully added the item to the cart!");
     }
     
     private static MusicalInstrument getItemBasedOnID(String instrumentId) {
@@ -208,18 +203,11 @@ public class MusicalInstrument {
     
     public static void displayItem(String id) throws IOException {
         MusicalInstrument chosenInstrument = getItemBasedOnID(id);
-        /*
-        ItemViewController.setImage(chosenInstrument.getImage());
-        ItemViewController.setName(chosenInstrument.getName());
-        ItemViewController.setDescription(chosenInstrument.getDescription());
-        ItemViewController.setBrand(chosenInstrument.getBrand());
-        ItemViewController.setCategory(chosenInstrument.getCategory().name());
-        ItemViewController.setWarrantyPeriod(chosenInstrument.getWarrantyPeriod());
-        ItemViewController.setPrice("₱ " + chosenInstrument.getPrice());
-        */
+
         ItemViewController.instrument = chosenInstrument;
-        // Additional details
-   
+        
+        // TODO: Add additional details for all instruments
+
         if (chosenInstrument instanceof Guitar) {
             Guitar g = (Guitar) chosenInstrument;
             ItemViewController.setAdditionalDetails(
@@ -230,8 +218,6 @@ public class MusicalInstrument {
             );
         }
     
-        // TODO: Add additional details for all instruments
-        
         App.changeStage("ItemView", "Item: " + chosenInstrument.getName(), 980, 588);
     };
 }

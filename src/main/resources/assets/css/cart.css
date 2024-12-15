@@ -33,3 +33,18 @@
     -fx-font-family: "Montserrat Bold";
     -fx-font-size: 32px;
 }
+
+#receiptDetails {
+    -fx-font-family: "Montserrat Bold";
+    -fx-font-size: 22px;
+}
+
+#dateLabel, #subTotalLabel, #vatLabel, #discountLabel, #paymentMethodLabel, #grandTotalAmountLabel, #amountTenderedLabel, #changeLabel {
+    -fx-font-family: "Montserrat Bold";
+    -fx-font-size: 14px;
+}
+
+#subtotal, #vat, #discount, #grandTotalAmount, #change, #date {
+    -fx-font-family: "Montserrat Medium";
+    -fx-font-size: 12px;
+}

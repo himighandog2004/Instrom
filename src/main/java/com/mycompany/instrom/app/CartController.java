@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
@@ -146,11 +147,14 @@ public class CartController implements Initializable {
     @FXML
     private void proceedToCheckout() throws IOException {
         // Remove items from cart then set each cart quantity to 0, also refresh the balance
+        
         App.myAccount.setBalance(currentPaymentMethodSelected, chngAmnt);
         for (MusicalInstrument item : MusicalInstrument.cart) {
             item.cartQuantity = 0;
         }
-        MusicalInstrument.cart.clear();
+        //new ArrayList instead of clearing the cart. bc faster.
+        MusicalInstrument.cart = new ArrayList<>();
+        
         JOptionPane.showMessageDialog(null, "Payment Successful! Thank you for your purchase!");           
         switchToDashboard();
     }

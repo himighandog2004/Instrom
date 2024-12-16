@@ -12,4 +12,9 @@ public class Harp extends Plucked {
         super(name, brand, id, description, image, warrantyPeriod, price, available, quantity, numberOfStrings, typeOfString, bodyShape, color, 0);
         this.isPedalHarp = true;
     }
+    
+    public boolean getHarpPedal(){
+        return isPedalHarp;
+    }
+    
 }

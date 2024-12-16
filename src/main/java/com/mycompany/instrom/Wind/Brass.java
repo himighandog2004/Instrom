@@ -23,4 +23,12 @@ public class Brass extends Wind {
         this.typeOfValve = typeOfValve;
     }
     
+    public String getMouthpiece(){
+        return mouthpiece;
+    }
+    
+    public int getValves(){
+        return valves;
+    }
+    
 }

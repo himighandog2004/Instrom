@@ -22,4 +22,8 @@ public class Drums extends Percussion {
         this.typeOfDrum = typeOfDrum;
     }
     
+    public String getDrumsetConfiguration(){
+        return drumSetConfiguration;
+    }
+    
 }

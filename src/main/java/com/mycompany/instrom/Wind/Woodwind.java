@@ -21,4 +21,12 @@ public class Woodwind extends Wind {
         this.typeOfReed = typeOfReed;
     }
     
+    public int getNumberOfKeys(){
+        return numberOfKeys;
+    }
+    
+    public String getLigatureType(){
+        return ligatureType;
+    }
+    
 }

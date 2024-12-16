@@ -20,6 +20,11 @@ public class Bowed extends Stringed {
         OTHERS
     }
     
-    public final BowType typeOfBow;
+    public BowType typeOfBow;
     public String playingPosition;
+    
+    public String getPlayingPosition(){
+        return playingPosition;
+    }
+    
 }

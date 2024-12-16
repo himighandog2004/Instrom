@@ -207,16 +207,96 @@ public class MusicalInstrument {
         ItemViewController.instrument = chosenInstrument;
         
         // TODO: Add additional details for all instruments
-
-        if (chosenInstrument instanceof Guitar) {
-            Guitar g = (Guitar) chosenInstrument;
-            ItemViewController.setAdditionalDetails(
-                    "Type: " + g.typeOfGuitar.name() + " - " +
-                    "Body Shape: " + g.getBodyShape() + " - " +
-                    "Color: " + g.getColor() + " - " +
-                    "Number of Strings: " + g.getNumberOfStrings()
-            );
-        }
+        
+        //Stringed
+            //Plucked
+                if (chosenInstrument instanceof Guitar) {
+                    Guitar g = (Guitar) chosenInstrument;
+                    ItemViewController.setAdditionalDetails(
+                        "Type: " + g.typeOfGuitar.name() + " - " +
+                        "Body Shape: " + g.getBodyShape() + " - " +
+                        "Color: " + g.getColor() + " - " +
+                        "Number of Strings: " + g.getNumberOfStrings()
+                    );
+                }
+                
+                if (chosenInstrument instanceof Harp) {
+                    Harp h = (Harp) chosenInstrument;
+                    ItemViewController.setAdditionalDetails(
+                        "Body Shape: " + h.getBodyShape() + " - " +
+                        "Color: " + h.getColor() + " - " +
+                        "Harp has Pedal: " + h.getHarpPedal() + " - " +
+                        "Number of Strings: " + h.getNumberOfStrings()
+                    );
+                }
+                
+            //Bowed
+            if (chosenInstrument instanceof Bowed) {
+                Bowed b = (Bowed) chosenInstrument;
+                ItemViewController.setAdditionalDetails(
+                    "Type: " + b.typeOfBow.name() + " - " +
+                    "Body Shape: " + b.getBodyShape() + " - " +
+                    "Color: " + b.getColor() + " - " +
+                    "Number of Strings: " + b.getNumberOfStrings() + " - " +
+                    "Playing Position: " + b.getPlayingPosition()
+                );
+            }
+            
+        //Keyboard
+            if (chosenInstrument instanceof Keyboard) {
+                Keyboard k = (Keyboard) chosenInstrument;
+                ItemViewController.setAdditionalDetails(
+                    "Number of Keys: " + k.getNumberOfKeys() + " - " +
+                    "Keyboard is Acoustic: " + k.getAcoustic()
+                );
+            }
+        
+        //Percussion
+            if (chosenInstrument instanceof Bells) {
+                Bells b = (Bells) chosenInstrument;
+                ItemViewController.setAdditionalDetails(
+                    "Material: " + b.getMaterial() + " - " +
+                    "Size: " + b.getSize() + " - " +
+                    "Tone: " + b.getTone() + " - " +
+                    "Shape: " + b.getShape() + " - " +
+                    "Pitch Range" + b.getPitchRange()
+                );
+            }
+            
+            if (chosenInstrument instanceof Drums){
+                Drums d = (Drums) chosenInstrument;
+                ItemViewController.setAdditionalDetails(
+                    "Type: " + d.typeOfDrum + " - " +
+                    "Material: " + d.getMaterial() + " - " +
+                    "Size: " + d.getSize() + " - " +
+                    "Tone: " + d.getTone() + " - " +
+                    "Configuration: " + d.getDrumsetConfiguration()
+                );
+            }
+        
+        //Wind
+            if (chosenInstrument instanceof Brass){
+                Brass br = (Brass) chosenInstrument;
+                ItemViewController.setAdditionalDetails(
+                    "Bore Shape: " + br.getBoreShape() + " - " +
+                    "Pitch Range: " + br.getPitchRange() + " - " +
+                    "Valve Type: " + br.typeOfValve + " - " +
+                    "Number of Valves: " + br.getValves() + " - " +
+                    "Mouthpiece: " + br.getMouthpiece()
+                );
+            }
+            
+            if (chosenInstrument instanceof Woodwind){
+                Woodwind ww = (Woodwind) chosenInstrument;
+                ItemViewController.setAdditionalDetails(
+                    "Bore Shape: " + ww.getBoreShape() + " - " +
+                    "Pitch Range: " + ww.getPitchRange() + " - " +
+                    "Reed Type: " + ww.typeOfReed + " - " +
+                    "Number of Keys: " + ww.getNumberOfKeys() + " - " +
+                    "Ligature Type: " + ww.getLigatureType()
+                );
+            }
+           
     
         App.changeStage("ItemView", "Item: " + chosenInstrument.getName(), 980, 588);
     };

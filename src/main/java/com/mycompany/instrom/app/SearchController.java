@@ -14,7 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -37,6 +37,9 @@ public class SearchController implements Initializable {
     private Label searchResultLabel;
     
     @FXML
+    private AnchorPane noResultsPane;
+    
+    @FXML
     private void switchToCart() throws IOException {
         App.changeStage("Cart", "My Cart", 980, 588);
     }
@@ -51,15 +54,6 @@ public class SearchController implements Initializable {
         App.changeStage("Account", "Instrom Account", 980, 588);
     }
     
-    /*
-    @FXML
-    private void clickOnItem(MouseEvent event) throws IOException {
-         // Retrieve the source node (the Pane that was clicked)
-        Pane source = (Pane) event.getSource();
-        MusicalInstrument.displayItem(source.getId());
-    } 
-    */
-    
     @FXML
     public static void switchToSearch() throws IOException {
         // Display results
@@ -72,6 +66,13 @@ public class SearchController implements Initializable {
             }
         }
         App.changeStage("Search", "Search results for: " + searchQuery, 980, 588);
+    }
+    
+    @FXML
+    public void search() throws IOException {
+        searchQuery = searchBar.getText();
+        searchResults = MusicalInstrument.getItemBasedOnName(searchQuery);
+        switchToSearch();
     }
     
     
@@ -169,11 +170,20 @@ public class SearchController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         searchBar.setText(searchQuery);
         searchResultLabel.setText(searchQuery);
+        if (searchResults.isEmpty()) {
+            noResultsPane.setManaged(true);
+            noResultsPane.setVisible(true);
+            return;
+        } else {
+            noResultsPane.setManaged(false);
+            noResultsPane.setVisible(false);
+        }
         HBox items[] = createHBox(searchResults.size());
-        System.out.println("itemslength: " + items.length + " size ng search results: " + searchResults.size());
+        
         for (int i = 0; i < items.length; i++) {
             itemsVBox.getChildren().add(items[i]);
         }
+        
         //itemsVBox.getChildren().addAll(createHBox(searchResults.size()));
     }
 }

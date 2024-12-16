@@ -60,7 +60,7 @@ public class LoginController implements Initializable {
             attempts--;
             userAttempt.setText("Attempts remaining: " + attempts);
             if(attempts == 0){
-                JOptionPane.showMessageDialog(null, "All attempts failed. Exiting program...");
+                JOptionPane.showMessageDialog(null, "All attempts failed. Exiting program...", "Out of Attempts", JOptionPane.ERROR_MESSAGE);
                 System.exit(0);
             }
         }

@@ -8,15 +8,15 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.beans.binding.Bindings;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
-import javafx.beans.property.*;
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.EventType;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.text.Text;
@@ -134,7 +134,7 @@ public class CartController implements Initializable {
             }
         } else {
             // Show an alert if no item is selected
-            JOptionPane.showMessageDialog(null, "No Selection, Please select an item to remove.");
+            JOptionPane.showMessageDialog(null, "No Selection, Please select an item to remove.", "No Item Selected", JOptionPane.WARNING_MESSAGE);
         }
     }
 
@@ -145,28 +145,60 @@ public class CartController implements Initializable {
         if (selectedInstrument != null) {
             MusicalInstrument.displayItem(selectedInstrument.getId());
         } else {
-            JOptionPane.showMessageDialog(null, "No Selection, Please select an item to view.");           
+            JOptionPane.showMessageDialog(null, "No Selection, Please select an item in the table to view.", "No Item Selected", JOptionPane.WARNING_MESSAGE);           
         }
     }
     
     @FXML
     private void proceedToCheckout() throws IOException {
-        // Remove items from cart then set each cart quantity to 0, also refresh the balance
-        App.myAccount.setBalance(currentPaymentMethodSelected, chngAmnt);        
-        //cartList.clear();
-        for (MusicalInstrument item : MusicalInstrument.cart) {
-            item.cartQuantity = 0; 
-            if (item.getQuantity() == 0) item.setAvailability(false);
+        int userChoice = JOptionPane.showConfirmDialog(
+            null, 
+            "Are you sure you want to proceed with the payment?", 
+            "Confirm Payment", 
+            JOptionPane.YES_NO_OPTION, 
+            JOptionPane.QUESTION_MESSAGE
+        );
+        
+        // Check user's choice
+        if (userChoice == JOptionPane.YES_OPTION) {
+            // Remove items from cart then set each cart quantity to 0, also refresh the balance
+            App.myAccount.setBalance(currentPaymentMethodSelected, chngAmnt);        
+            //cartList.clear();
+            for (MusicalInstrument item : MusicalInstrument.cart) {
+                item.cartQuantity = 0; 
+                if (item.getQuantity() == 0) item.setAvailability(false);
+            }
+            MusicalInstrument.cart = new ArrayList<>(); // Clear cart
+            // User clicked "Yes"
+            Object[] options = {"Return to Dashboard", "View Account"}; // Custom button text
+            int result = JOptionPane.showOptionDialog(
+                null, 
+                "Payment successful! Thank you for your purchase.", 
+                "Success", 
+                JOptionPane.DEFAULT_OPTION, 
+                JOptionPane.INFORMATION_MESSAGE, 
+                null, // Default icon
+                options, // Custom button text
+                options[0] // Default selected option
+            );
+            if (result == 0) {
+                switchToDashboard();
+            } else if (result == 1) {
+                switchToAccount();
+            } else { // If the user clicks on close
+                paymentMethod.setValue(App.myAccount.getUserPaymentMethodAsString());
+                cartList.clear();
+                cartTableView.refresh();
+            }
+        } else if (userChoice == JOptionPane.NO_OPTION) {
+            // User clicked "No"
+            JOptionPane.showMessageDialog(
+                null, 
+                "Payment was canceled.", 
+                "Canceled", 
+                JOptionPane.WARNING_MESSAGE
+            );
         }
-        MusicalInstrument.cart = new ArrayList<>();
-        cartList.clear();
-        // Recalculate the receipt to reset it and refresh the paymentMethods
-        paymentMethod.getItems().clear();
-        paymentMethod.getItems().addAll(App.myAccount.getBalanceAsString());
-        paymentMethod.setValue(App.myAccount.getUserPaymentMethodAsString());
-        calculateReceipt();
-        cartTableView.refresh();
-        JOptionPane.showMessageDialog(null, "Payment Successful! Thank you for your purchase!");
     }
    
     @Override
@@ -290,6 +322,7 @@ public class CartController implements Initializable {
         date.setText(getFormattedDate());
         
         paymentMethod.getItems().addAll(App.myAccount.getBalanceAsString());
+        
         // Add a listener to react to changes in the selected option
         paymentMethod.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             System.out.println("Selected: " + newValue);

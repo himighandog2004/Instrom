@@ -3,7 +3,6 @@ package com.mycompany.instrom.app;
 import com.mycompany.instrom.MusicalInstrument;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.animation.ScaleTransition;
 import javafx.collections.ObservableList;
@@ -48,7 +47,6 @@ public class DashboardController implements Initializable {
     @FXML
     private void searchItem() throws IOException {
         SearchController.searchQuery = searchBar.getText();
-        //App.changeStage("Search", "Search results for: " + SearchController.searchQuery, 980, 588);
         SearchController.searchResults = MusicalInstrument.getItemBasedOnName(SearchController.searchQuery);
         SearchController.switchToSearch();
     }

@@ -171,7 +171,7 @@ public class MusicalInstrument {
         int currentItemQuantity = instr.getQuantity();
         // Validate
         if (qty > currentItemQuantity) {
-            JOptionPane.showMessageDialog(null, "Unable to add item! There's " + currentItemQuantity + " item(s) remaining in stock.");
+            JOptionPane.showMessageDialog(null, "Unable to add item! There's " + currentItemQuantity + " item(s) remaining in stock.", "Quantity exceeded", JOptionPane.WARNING_MESSAGE);
             return;
         }
         
@@ -184,7 +184,7 @@ public class MusicalInstrument {
         instr.cartQuantity += qty;
         
         System.out.println("The item now has: " + instr.getQuantity() + " while cart quantity is: " + instr.cartQuantity);
-        JOptionPane.showMessageDialog(null, "Successfully added the item to the cart!");
+        JOptionPane.showMessageDialog(null, "Successfully added the item to the cart!", "Operation Successful", JOptionPane.INFORMATION_MESSAGE);
     }
     
     private static MusicalInstrument getItemBasedOnID(String instrumentId) {

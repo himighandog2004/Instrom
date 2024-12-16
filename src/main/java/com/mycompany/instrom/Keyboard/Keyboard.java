@@ -16,8 +16,4 @@ public class Keyboard extends MusicalInstrument {
         return numberOfKeys;
     }
     
-    public boolean getAcoustic(){
-        return isAcoustic;
-    }
-    
 }

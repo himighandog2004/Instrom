@@ -50,10 +50,10 @@
                   <Insets left="40.0" />
                </padding>
                <graphic>
-                  <FontAwesomeIcon fill="WHITE" glyphName="SHOPPING_CART" scaleX="1.5" scaleY="1.5" wrappingWidth="20.0" />
+                  <FontAwesomeIcon fill="WHITE" glyphName="SHOPPING_CART" onMouseClicked="#switchToCart" scaleX="1.5" scaleY="1.5" wrappingWidth="20.0" />
                </graphic>
             </Button>
-            <Button id="categoriesButton" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="42.0" prefWidth="212.0" style="-fx-background-color: #3A3B3C;" text="CATEGORIES" textFill="WHITE">
+            <Button id="categoriesButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchToCategories" prefHeight="42.0" prefWidth="212.0" style="-fx-background-color: #3A3B3C;" text="CATEGORIES" textFill="WHITE">
                <padding>
                   <Insets left="40.0" />
                </padding>

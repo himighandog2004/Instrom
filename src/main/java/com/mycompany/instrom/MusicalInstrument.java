@@ -206,8 +206,6 @@ public class MusicalInstrument {
 
         ItemViewController.instrument = chosenInstrument;
         
-        // TODO: Add additional details for all instruments
-        
         //Stringed
             //Plucked
                 if (chosenInstrument instanceof Guitar) {

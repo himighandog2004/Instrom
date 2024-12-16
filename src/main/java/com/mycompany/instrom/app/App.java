@@ -18,7 +18,8 @@ public class App extends Application {
         primaryStage = stage;
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/assets/images/icon.png")));
         primaryStage.setResizable(false);
-        changeStage("Login", "Log in to your Instrom Account", 640, 480);
+        //changeStage("Login", "Log in to your Instrom Account", 640, 480);
+        App.changeStage("Dashboard", "Welcome to Dashboard!", 980, 588);
     }
     
     public static void changeStage(String fxml, String title, int width, int height) throws IOException {

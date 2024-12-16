@@ -46,7 +46,7 @@
                   <Button alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: #3A3B3C;" textFill="WHITE" />
                   <Button mnemonicParsing="false" onMouseClicked="#switchToDashboard" style="-fx-background-color: #3A3B3C;" />
                   <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="376.0" layoutY="65.0" onMouseClicked="#switchToDashboard" size="36px" text="" textOrigin="CENTER" />
-                  <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="325.0" layoutY="77.0" size="36px" wrappingWidth="11.142857551574707" />
+                  <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="325.0" layoutY="77.0" onMouseClicked="#switchToAccount" size="36px" wrappingWidth="11.142857551574707" />
                </children>
             </AnchorPane>
          </children>
@@ -60,7 +60,7 @@
             <TableColumn fx:id="amountColumn" prefWidth="125.0" text="Amount" />
         </columns>
       </TableView>
-      <Button fx:id="proceedToCheckoutButton" layoutX="752.0" layoutY="513.0" mnemonicParsing="false" onKeyPressed="#proceedToCheckout" text="Proceed to Checkout" />
+      <Button fx:id="proceedToCheckoutButton" layoutX="752.0" layoutY="513.0" mnemonicParsing="false" onMouseClicked="#proceedToCheckout" text="Proceed to Checkout" />
       <Button fx:id="removeFromCartButton" layoutX="507.0" layoutY="538.0" mnemonicParsing="false" onMouseClicked="#removeSelectedInstrument" text="Remove from Cart" />
       <Text id="receiptDetails" layoutX="645.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RECEIPT DETAILS" />
       <VBox layoutX="648.0" layoutY="194.0" prefHeight="260.0" prefWidth="320.0">

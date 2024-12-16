@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<SplitPane dividerPositions="0.45" focusTraversable="true" prefHeight="588.0" prefWidth="980.0" stylesheets="@../../../../assets/css/account.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.instrom.app.AccountController">
+   <items>
+      <AnchorPane prefHeight="558.0" prefWidth="390.0" style="-fx-background-color: #3A3B3C;">
+         <children>
+            <VBox layoutX="38.0" layoutY="161.0" prefHeight="365.0" prefWidth="362.0" style="-fx-background-color: white; -fx-background-radius: 0;">
+               <children>
+                  <Text id="detailsLabel" fill="#575656" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="70.0">
+                     <font>
+                        <Font name="Montserrat ExtraBold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text id="details" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="302.61399841308594">
+                     <font>
+                        <Font name="Montserrat Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" top="7.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text id="detailsLabel" fill="#575656" layoutX="20.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" wrappingWidth="79.0">
+                     <font>
+                        <Font name="Montserrat ExtraBold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text id="details" strokeType="OUTSIDE" strokeWidth="0.0" text="Ayala Avenue corner Sen. Gil Puyat Avenue Barangay San Antonio, Makati City" wrappingWidth="318.0">
+                     <font>
+                        <Font name="Montserrat Regular" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" top="7.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text id="detailsLabel" fill="#575656" strokeType="OUTSIDE" strokeWidth="0.0" text="Country" wrappingWidth="80.0">
+                     <font>
+                        <Font name="Montserrat ExtraBold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text id="details" strokeType="OUTSIDE" strokeWidth="0.0" text="Philippines" wrappingWidth="274.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" top="7.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text id="detailsLabel" fill="#575656" strokeType="OUTSIDE" strokeWidth="0.0" text="City/State" wrappingWidth="149.0">
+                     <font>
+                        <Font name="Montserrat ExtraBold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text id="details" strokeType="OUTSIDE" strokeWidth="0.0" text="Metro Manila" wrappingWidth="274.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" top="7.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text id="detailsLabel" fill="#575656" strokeType="OUTSIDE" strokeWidth="0.0" text="Postal Code" wrappingWidth="274.0">
+                     <font>
+                        <Font name="Montserrat ExtraBold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text id="details" strokeType="OUTSIDE" strokeWidth="0.0" text="1207" wrappingWidth="149.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" top="7.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+            <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="191.0" layoutY="88.0" size="6em" />
+            <Text id="accountDetails" fill="WHITE" layoutX="75.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ACCOUNT DETAILS" textAlignment="CENTER" wrappingWidth="288.0">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="558.0" prefWidth="470.0" style="-fx-background-color: #3A3B3C;">
+         <children>
+            <VBox layoutX="24.0" layoutY="341.0" prefHeight="185.0" prefWidth="484.0" style="-fx-background-color: white; -fx-background-radius: 0;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Method" wrappingWidth="274.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <ChoiceBox fx:id="paymentMethod" prefHeight="25.0" prefWidth="169.0">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </ChoiceBox>
+                  <ImageView fitHeight="55.0" fitWidth="251.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../assets/images/methods.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets left="20.0" top="40.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox layoutX="24.0" layoutY="122.0" prefHeight="196.0" prefWidth="484.0" style="-fx-background-color: white; -fx-background-radius: 0;">
+               <children>
+                  <Text id="detailsLabel" fill="#575656" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" wrappingWidth="134.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="15.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text id="details" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="274.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" top="7.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text id="detailsLabel" fill="#575656" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" wrappingWidth="145.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text id="details" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="274.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" top="7.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text id="detailsLabel" fill="#575656" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="91.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text id="details" strokeType="OUTSIDE" strokeWidth="0.0" text="admin@gmail.com" wrappingWidth="274.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" top="7.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+            <Text id="accountDetails" fill="WHITE" layoutX="24.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PERSONAL INFORMATION" textAlignment="CENTER" wrappingWidth="368.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <Button id="goBackButton" layoutX="409.0" layoutY="23.0" mnemonicParsing="false" onMouseClicked="#switchToDashboard" text="Go Back">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="ARROW_LEFT" />
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </items>
+</SplitPane>

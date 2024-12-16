@@ -135,7 +135,7 @@ public class ItemViewController implements Initializable {
             int qty = Integer.parseInt(quantityField.getText());      
             MusicalInstrument.addToCart(instrument, qty);
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Failed to add the item to the cart!");
+            JOptionPane.showMessageDialog(null, "Failed to add the item to the cart!", "Operation Failed", JOptionPane.ERROR_MESSAGE);
         }
         
     }

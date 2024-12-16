@@ -22,13 +22,5 @@ public class Brass extends Wind {
         super(name, brand, id, description, image, warrantyPeriod, price, available, quantity, pitchRange, boreShape);
         this.typeOfValve = typeOfValve;
     }
-    
-    public String getMouthpiece(){
-        return mouthpiece;
-    }
-    
-    public int getValves(){
-        return valves;
-    }
-    
+       
 }

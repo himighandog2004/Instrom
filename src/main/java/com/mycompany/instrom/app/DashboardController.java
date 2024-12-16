@@ -45,6 +45,11 @@ public class DashboardController implements Initializable {
     }
     
     @FXML
+    private void switchToCategories() throws IOException {
+        App.changeStage("Categories", "Categories", 980, 588);
+    }
+    
+    @FXML
     private void searchItem() throws IOException {
         SearchController.searchQuery = searchBar.getText();
         SearchController.searchResults = MusicalInstrument.getItemBasedOnName(SearchController.searchQuery);

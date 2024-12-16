@@ -22,7 +22,7 @@ public class MusicalInstrument {
     public static final MusicalInstrument[] instruments = {
         // Guitars (0-8)
         new Guitar("BAT1M Tahoma", "Bromo", "G01", "A guitar inspired by the majestic reputation of the Tahoma volcano in the Pacific Ring of Fire", "/assets/images/guitars/Bromo_BAT1M_Tahoma_Dreadnought_Acoustic_Guitar_Natural.png", "1 Year", 9000.00, true, 12, 6, StringType.STEEL, "Dreadnought", "Natural", 20, GuitarType.ACOUSTIC),
-        new Guitar("BR-160E ", "Blueridge", "G02", "Historic Series Solid Top Dreadnought Electric Acoustic Guitar.", "/assets/images/guitars/Blueridge BR-160E Historic Series Solid Top Dreadnought Electric Acoustic Guitar.png", "2 Year", 59415.00, true, 2, 6, StringType.STEEL, "Dreadnought", "Natural", 20, GuitarType.ACOUSTIC),
+        new Guitar("BR-160E", "Blueridge", "G02", "Historic Series Solid Top Dreadnought Electric Acoustic Guitar.", "/assets/images/guitars/Blueridge BR-160E Historic Series Solid Top Dreadnought Electric Acoustic Guitar.png", "2 Year", 59415.00, true, 2, 6, StringType.STEEL, "Dreadnought", "Natural", 20, GuitarType.ACOUSTIC),
         new Guitar("BR-40E", "Blueridge", "G03", "Solid Top Dreadnought Electric Acoustic Guitar", "/assets/images/guitars/Blueridge BR-40E Solid Top Dreadnought Electric Acoustic Guitar.png", "2 Years", 37145.00, true, 2, 6, StringType.STEEL, "Dreadnought", "Natural", 20, GuitarType.ACOUSTIC),
         new Guitar("CC-60S", "Fender", "G04", "Concert Solid Top Acoustic Guitar Pack - Mahogany", "/assets/images/guitars/Fender CC-60S Concert Solid Top Acoustic Guitar Pack - Mahogany (970150422).png", "1 Year", 11857.50, true, 5, 6, StringType.STEEL, "Auditorium", "Brown", 20, GuitarType.ACOUSTIC),
         new Guitar("AW-41C", "Fernando", "G05", "Acoustic Guitar with Cutaway", "/assets/images/guitars/Fernando AW-41C Acoustic Guitar with Cutaway (Sunburst).png", "1 Year", 3240.00, true, 20, 6, StringType.STEEL, "Auditorium", "Brown", 20, GuitarType.ACOUSTIC),
@@ -196,13 +196,25 @@ public class MusicalInstrument {
         return null;
     }
     
+    public static ArrayList<MusicalInstrument> getItemBasedOnCategory(InstrumentCategory category) {
+        ArrayList<MusicalInstrument> matchingInstruments = new ArrayList<>();
+        for (MusicalInstrument instrument : instruments) {
+            if (instrument.category.equals(category)) {
+                matchingInstruments.add(instrument);
+            }
+        }
+        return matchingInstruments;
+    }
+    
     public static ArrayList<MusicalInstrument> getItemBasedOnName(String query) {
         ArrayList<MusicalInstrument> matchingInstruments = new ArrayList<>();
         String lowerCaseSearchTerm = query.toLowerCase();
 
         for (MusicalInstrument instrument : instruments) {
-            if (instrument.getName().toLowerCase().contains(lowerCaseSearchTerm) ||
-                instrument.getDescription().toLowerCase().contains(lowerCaseSearchTerm)) {
+            // Gets the item if it matches something from its name, description, or brand...
+            if (instrument.getName().toLowerCase().contains(lowerCaseSearchTerm) || 
+                    instrument.getDescription().toLowerCase().contains(lowerCaseSearchTerm) || 
+                    instrument.getBrand().toLowerCase().contains(lowerCaseSearchTerm)) {
                 matchingInstruments.add(instrument);
             }
         }
@@ -232,7 +244,7 @@ public class MusicalInstrument {
                     ItemViewController.setAdditionalDetails(
                         "Body Shape: " + h.getBodyShape() + " - " +
                         "Color: " + h.getColor() + " - " +
-                        "Harp has Pedal: " + h.getHarpPedal() + " - " +
+                        "Harp has Pedal: " + h.isPedalHarp + " - " +
                         "Number of Strings: " + h.getNumberOfStrings()
                     );
                 }
@@ -245,7 +257,7 @@ public class MusicalInstrument {
                     "Body Shape: " + b.getBodyShape() + " - " +
                     "Color: " + b.getColor() + " - " +
                     "Number of Strings: " + b.getNumberOfStrings() + " - " +
-                    "Playing Position: " + b.getPlayingPosition()
+                    "Playing Position: " + b.playingPosition
                 );
             }
             
@@ -254,7 +266,7 @@ public class MusicalInstrument {
                 Keyboard k = (Keyboard) chosenInstrument;
                 ItemViewController.setAdditionalDetails(
                     "Number of Keys: " + k.getNumberOfKeys() + " - " +
-                    "Keyboard is Acoustic: " + k.getAcoustic()
+                    "Keyboard is Acoustic: " + k.isAcoustic
                 );
             }
         
@@ -265,8 +277,8 @@ public class MusicalInstrument {
                     "Material: " + b.getMaterial() + " - " +
                     "Size: " + b.getSize() + " - " +
                     "Tone: " + b.getTone() + " - " +
-                    "Shape: " + b.getShape() + " - " +
-                    "Pitch Range" + b.getPitchRange()
+                    "Shape: " + b.shape + " - " +
+                    "Pitch Range" + b.pitchRange
                 );
             }
             
@@ -277,7 +289,7 @@ public class MusicalInstrument {
                     "Material: " + d.getMaterial() + " - " +
                     "Size: " + d.getSize() + " - " +
                     "Tone: " + d.getTone() + " - " +
-                    "Configuration: " + d.getDrumsetConfiguration()
+                    "Configuration: " + d.drumSetConfiguration
                 );
             }
         
@@ -288,8 +300,8 @@ public class MusicalInstrument {
                     "Bore Shape: " + br.getBoreShape() + " - " +
                     "Pitch Range: " + br.getPitchRange() + " - " +
                     "Valve Type: " + br.typeOfValve + " - " +
-                    "Number of Valves: " + br.getValves() + " - " +
-                    "Mouthpiece: " + br.getMouthpiece()
+                    "Number of Valves: " + br.valves + " - " +
+                    "Mouthpiece: " + br.mouthpiece
                 );
             }
             
@@ -299,8 +311,8 @@ public class MusicalInstrument {
                     "Bore Shape: " + ww.getBoreShape() + " - " +
                     "Pitch Range: " + ww.getPitchRange() + " - " +
                     "Reed Type: " + ww.typeOfReed + " - " +
-                    "Number of Keys: " + ww.getNumberOfKeys() + " - " +
-                    "Ligature Type: " + ww.getLigatureType()
+                    "Number of Keys: " + ww.numberOfKeys + " - " +
+                    "Ligature Type: " + ww.ligatureType
                 );
             }
            

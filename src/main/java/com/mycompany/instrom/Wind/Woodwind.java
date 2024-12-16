@@ -19,14 +19,6 @@ public class Woodwind extends Wind {
     public Woodwind(String name, String brand, String id, String description, String image, String warrantyPeriod, double price, boolean available, int quantity, String pitchRange, String boreShape, ReedType typeOfReed) {
         super(name, brand, id, description, image, warrantyPeriod, price, available, quantity, pitchRange, boreShape);
         this.typeOfReed = typeOfReed;
-    }
-    
-    public int getNumberOfKeys(){
-        return numberOfKeys;
-    }
-    
-    public String getLigatureType(){
-        return ligatureType;
-    }
+    }    
     
 }

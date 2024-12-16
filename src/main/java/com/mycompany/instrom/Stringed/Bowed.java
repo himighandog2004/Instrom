@@ -23,8 +23,4 @@ public class Bowed extends Stringed {
     public BowType typeOfBow;
     public String playingPosition;
     
-    public String getPlayingPosition(){
-        return playingPosition;
-    }
-    
 }

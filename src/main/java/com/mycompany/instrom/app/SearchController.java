@@ -55,6 +55,11 @@ public class SearchController implements Initializable {
     }
     
     @FXML
+    private void switchToCategories() throws IOException {
+        App.changeStage("Categories", "Categories", 980, 588);
+    }
+    
+    @FXML
     public static void switchToSearch() throws IOException {
         // Display results
         if (searchResults.isEmpty()) {
@@ -110,7 +115,6 @@ public class SearchController implements Initializable {
         pane.setPrefSize(151, 176);
         pane.setStyle("-fx-border-color: black; -fx-border-width: 1;");
         pane.setId(id);
-        // Set onMouseClicked event
         
         // ScaleTransition for hover effect
         ScaleTransition scaleUp = new ScaleTransition(Duration.millis(300), pane); // 300ms animation
@@ -179,11 +183,12 @@ public class SearchController implements Initializable {
             noResultsPane.setVisible(false);
         }
         HBox items[] = createHBox(searchResults.size());
-        
+        /*
         for (int i = 0; i < items.length; i++) {
             itemsVBox.getChildren().add(items[i]);
         }
+        */
         
-        //itemsVBox.getChildren().addAll(createHBox(searchResults.size()));
+        itemsVBox.getChildren().addAll(items);
     }
 }

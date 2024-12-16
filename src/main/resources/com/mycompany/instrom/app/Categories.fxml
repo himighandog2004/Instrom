@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="980.0" style="-fx-background-color: white;" stylesheets="@../../../../assets/css/dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.instrom.app.CategoriesController">
+   <children>
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="215.0" style="-fx-background-color: #3A3B3C;">
+         <children>
+            <ImageView fitHeight="70.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../assets/images/logo.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="12.0" left="5.0" right="5.0" top="16.0" />
+               </VBox.margin>
+            </ImageView>
+            <Button id="dashboardButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchToDashboard" prefHeight="42.0" prefWidth="206.0" style="-fx-background-color: #3A3B3C;" text="DASHBOARD" textFill="WHITE">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="HOME" scaleX="1.5" scaleY="1.5" wrappingWidth="20.0" />
+               </graphic>
+            </Button>
+            <Button id="myAccountButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchToAccount" prefHeight="42.0" prefWidth="209.0" style="-fx-background-color: #3A3B3C;" text="MY ACCOUNT" textFill="WHITE">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="USER" scaleX="1.5" scaleY="1.5" wrappingWidth="20.0" />
+               </graphic>
+            </Button>
+            <Button id="myCartButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchToCart" prefHeight="42.0" prefWidth="215.0" style="-fx-background-color: #3A3B3C;" text="MY CART" textFill="WHITE">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="SHOPPING_CART" scaleX="1.5" scaleY="1.5" wrappingWidth="20.0" />
+               </graphic>
+            </Button>
+            <Button id="categoriesButton" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="42.0" prefWidth="212.0" style="-fx-background-color: #3A3B3C;" text="CATEGORIES" textFill="WHITE">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="LIST" scaleX="1.5" scaleY="1.5" text="" wrappingWidth="20.0" />
+               </graphic>
+            </Button>
+            <Label id="searchLabel" alignment="BOTTOM_LEFT" ellipsisString="" prefHeight="40.0" prefWidth="160.0" text="Search Instruments" textAlignment="CENTER" textFill="WHITE">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" />
+               </graphic>
+            </Label>
+            <TextField fx:id="searchBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="160.0">
+               <VBox.margin>
+                  <Insets bottom="16.0" top="8.0" />
+               </VBox.margin>
+            </TextField>
+            <Button id="searchButton" mnemonicParsing="false" onMouseClicked="#search" text="Search" />
+         </children>
+      </VBox>
+      <Text id="dashboardGreeting" fill="#575656" layoutX="251.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories" wrappingWidth="200.0" />
+      <HBox fx:id="categoriesHBox" alignment="CENTER" layoutX="245.0" layoutY="165.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="290.0" prefWidth="710.0" spacing="20.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="240.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../assets/images/stringed_category.jpg" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+                  <Text fill="#575656" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stringed" textAlignment="CENTER" wrappingWidth="162.0">
+                     <font>
+                        <Font name="Montserrat Bold" size="16.0" />
+                     </font>
+                  </Text>
+               </children></AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="240.0" fitWidth="226.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../assets/images/percussion_category.jpg" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#575656" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Percussion" textAlignment="CENTER" wrappingWidth="162.0">
+                     <font>
+                        <Font name="Montserrat Bold" size="16.0" />
+                     </font>
+                  </Text>
+               </children></AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="240.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../assets/images/keyboard_category.jpg" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#575656" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Keyboard" textAlignment="CENTER" wrappingWidth="162.0">
+                     <font>
+                        <Font name="Montserrat Bold" size="16.0" />
+                     </font>
+                  </Text>
+               </children></AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="240.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../assets/images/wind_category.jpg" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#575656" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wind" textAlignment="CENTER" wrappingWidth="162.0">
+                     <font>
+                        <Font name="Montserrat Bold" size="16.0" />
+                     </font>
+                  </Text>
+               </children></AnchorPane>
+         </children>
+      </HBox>
+      <Text fx:id="categoriesLabel" layoutX="470.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font name="Montserrat Light" size="14.0" />
+         </font>
+      </Text>
+      <ScrollPane fx:id="itemsScrollPane" hbarPolicy="NEVER" layoutX="230.0" layoutY="80.0" prefHeight="494.0" prefWidth="736.0" visible="false">
+         <content>
+            <VBox fx:id="itemsVBox" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" />
+         </content></ScrollPane>
+        <Button id="goBackButton" fx:id="goBackButton" layoutX="860.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#goBackButton" style="-fx-font-family: 'Montserrat Bold';                         -fx-font-size: 14px;                         -fx-background-color: #967126;                         -fx-text-fill: white;                         transition: -fx-background-color;" text="Go Back" visible="false">
+           <graphic>
+              <FontAwesomeIcon fill="WHITE" glyphName="ARROW_LEFT" />
+           </graphic>
+        </Button>
+
+   </children>
+   <rotationAxis>
+      <Point3D />
+   </rotationAxis>
+</AnchorPane>
